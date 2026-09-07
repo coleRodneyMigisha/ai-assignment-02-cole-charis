@@ -49,6 +49,37 @@ alone. The module also tunes XGBoost tree depth, child weight, learning rate,
 sampling, and L1/L2 regularization with Optuna. Finally, it evaluates LightGBM with
 custom focal loss using ROC AUC and log loss.
 
+### Accuracy and metric interpretation
+
+The advanced workflow compares baseline and adjusted hyperparameters for both
+AdaBoost and XGBoost. It writes the following files to `plots/advanced_metrics/`:
+
+- `metrics.csv`: all numeric results for each model.
+- `confusion_matrices.png`: true negatives, false positives, false negatives,
+	and true positives.
+- `roc_curves.png`: recall versus false-positive rate across probability thresholds.
+- `metric_comparison.png`: accuracy, precision, recall, F1, and ROC AUC comparison.
+
+Metric implications:
+
+- **Accuracy** is the proportion of all correct predictions. It can be misleading
+	for imbalanced stroke data because predicting the majority class can look good.
+- **Precision** is the proportion of predicted positive cases that are truly positive.
+	Higher precision means fewer false alarms.
+- **Recall** is the proportion of actual positive cases detected. Higher recall means
+	fewer missed positive patients, which is often important in medical screening.
+- **F1** is the harmonic mean of precision and recall, useful when both error types
+	matter.
+- **ROC AUC** measures ranking quality across all thresholds; `0.5` is random and
+	`1.0` is perfect separation.
+- **Log loss** penalizes incorrect probabilities, especially confident wrong ones.
+- **MAE** and **RMSE** are included as probability-error diagnostics against binary
+	labels. They are not substitutes for classification metrics. RMSE penalizes large
+	probability errors more heavily than MAE.
+
+For the medical use case, select a threshold based on the cost of false negatives,
+then report the resulting precision and recall alongside ROC AUC and log loss.
+
 Install the optional packages first:
 
 ```bash

@@ -7,11 +7,25 @@ binary focal-loss objective. Install optional dependencies with:
     pip install xgboost optuna imbalanced-learn lightgbm
 """
 
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import AdaBoostClassifier
-from sklearn.metrics import log_loss, precision_score, recall_score, roc_auc_score
+from sklearn.metrics import (
+    accuracy_score,
+    confusion_matrix,
+    f1_score,
+    log_loss,
+    mean_absolute_error,
+    mean_squared_error,
+    precision_score,
+    recall_score,
+    roc_auc_score,
+)
 from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 from train_classifiers import (
     RANDOM_STATE,
@@ -20,6 +34,8 @@ from train_classifiers import (
     load_datasets,
     prepare_features,
 )
+
+METRICS_PLOT_DIR = "plots/advanced_metrics"
 
 
 def transform_data(
@@ -47,16 +63,29 @@ def classification_metrics(
     """Calculate metrics that expose the precision/recall trade-off."""
     predictions = (probabilities >= threshold).astype(int)
     return {
+        "accuracy": accuracy_score(y_true, predictions),
         "roc_auc": roc_auc_score(y_true, probabilities),
         "log_loss": log_loss(y_true, probabilities, labels=[0, 1]),
         "precision": precision_score(y_true, predictions, zero_division=0),
         "recall": recall_score(y_true, predictions, zero_division=0),
+        "f1": f1_score(y_true, predictions, zero_division=0),
+        "mae": mean_absolute_error(y_true, probabilities),
+        "rmse": mean_squared_error(y_true, probabilities) ** 0.5,
     }
 
 
 def build_adaboost() -> AdaBoostClassifier:
     """Build a reproducible AdaBoost classifier."""
     return AdaBoostClassifier(n_estimators=200, learning_rate=0.05, random_state=RANDOM_STATE)
+
+
+def build_tuned_adaboost() -> AdaBoostClassifier:
+    """AdaBoost configuration with more gradual, less aggressive updates."""
+    return AdaBoostClassifier(
+        n_estimators=350,
+        learning_rate=0.03,
+        random_state=RANDOM_STATE,
+    )
 
 
 def require_xgboost():
@@ -88,6 +117,100 @@ def build_xgboost(**overrides):
     }
     settings.update(overrides)
     return XGBClassifier(**settings)
+
+
+def build_tuned_xgboost(**overrides):
+    """A manually adjusted XGBoost configuration for comparison."""
+    settings = {
+        "n_estimators": 500,
+        "max_depth": 3,
+        "learning_rate": 0.03,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 4,
+        "gamma": 0.1,
+        "reg_alpha": 0.1,
+        "reg_lambda": 3.0,
+    }
+    settings.update(overrides)
+    return build_xgboost(**settings)
+
+
+def evaluate_classifiers(
+    models: dict[str, object],
+    X_train: np.ndarray,
+    y_train: pd.Series,
+    X_test: np.ndarray,
+    y_test: pd.Series,
+    threshold: float = 0.5,
+) -> pd.DataFrame:
+    """Fit classifiers and return a comparable metric table."""
+    rows = []
+    for name, model in models.items():
+        model.fit(X_train, y_train)
+        probabilities = model.predict_proba(X_test)[:, 1]
+        row = classification_metrics(y_test, probabilities, threshold)
+        row["model"] = name
+        rows.append(row)
+    return pd.DataFrame(rows).set_index("model").sort_values("f1", ascending=False)
+
+
+def save_metric_visualizations(
+    models: dict[str, object],
+    X_train: np.ndarray,
+    y_train: pd.Series,
+    X_test: np.ndarray,
+    y_test: pd.Series,
+    threshold: float = 0.5,
+    output_dir: str = METRICS_PLOT_DIR,
+) -> None:
+    """Save confusion matrices, ROC curves, and metric comparison plots."""
+    output_path = Path(output_dir)
+    output_path.mkdir(parents=True, exist_ok=True)
+    probabilities_by_model = {}
+    confusion_matrices = {}
+
+    for name, model in models.items():
+        model.fit(X_train, y_train)
+        probabilities = model.predict_proba(X_test)[:, 1]
+        probabilities_by_model[name] = probabilities
+        predictions = (probabilities >= threshold).astype(int)
+        confusion_matrices[name] = confusion_matrix(y_test, predictions)
+
+    figure, axes = plt.subplots(1, len(confusion_matrices), figsize=(10, 4))
+    for axis, (name, matrix) in zip(np.atleast_1d(axes), confusion_matrices.items()):
+        sns.heatmap(matrix, annot=True, fmt="d", cmap="Blues", cbar=False, ax=axis)
+        axis.set_title(name)
+        axis.set_xlabel("Predicted label")
+        axis.set_ylabel("Actual label")
+    figure.tight_layout()
+    figure.savefig(output_path / "confusion_matrices.png", dpi=150)
+    plt.close(figure)
+
+    figure, axis = plt.subplots(figsize=(7, 5))
+    for name, probabilities in probabilities_by_model.items():
+        from sklearn.metrics import RocCurveDisplay
+
+        RocCurveDisplay.from_predictions(y_test, probabilities, name=name, ax=axis)
+    axis.set_title("ROC curves")
+    figure.tight_layout()
+    figure.savefig(output_path / "roc_curves.png", dpi=150)
+    plt.close(figure)
+
+    metrics = pd.DataFrame(
+        [classification_metrics(y_test, probabilities, threshold) for probabilities in probabilities_by_model.values()],
+        index=probabilities_by_model,
+    )
+    metrics[["accuracy", "precision", "recall", "f1", "roc_auc"]].plot.bar(
+        figsize=(10, 5), ylim=(0, 1), title="Classification metric comparison"
+    )
+    plt.ylabel("Score")
+    plt.xticks(rotation=0)
+    plt.tight_layout()
+    plt.savefig(output_path / "metric_comparison.png", dpi=150)
+    plt.close()
+
+    metrics.to_csv(output_path / "metrics.csv")
 
 
 def compare_imbalance_strategies(
@@ -225,9 +348,21 @@ def main(n_trials: int = 20) -> None:
     )
     train_matrix, test_matrix, new_matrix = transform_data(X_train, X_test, X_new)
 
-    adaboost = build_adaboost().fit(train_matrix, y_train)
-    ada_metrics = classification_metrics(y_test, adaboost.predict_proba(test_matrix)[:, 1])
-    print("AdaBoost:", {key: round(value, 3) for key, value in ada_metrics.items()})
+    adjusted_models = {
+        "AdaBoost baseline": build_adaboost(),
+        "AdaBoost adjusted": build_tuned_adaboost(),
+        "XGBoost baseline": build_xgboost(),
+        "XGBoost adjusted": build_tuned_xgboost(),
+    }
+    adjusted_results = evaluate_classifiers(
+        adjusted_models, train_matrix, y_train, test_matrix, y_test
+    )
+    print("\nBaseline versus adjusted hyperparameters:")
+    print(adjusted_results.round(3).to_string())
+    save_metric_visualizations(
+        adjusted_models, train_matrix, y_train, test_matrix, y_test
+    )
+    print(f"Metrics and plots written to {METRICS_PLOT_DIR}/")
 
     print("\nImbalance comparison:")
     print(compare_imbalance_strategies(train_matrix, y_train, test_matrix, y_test).round(3).to_string(index=False))

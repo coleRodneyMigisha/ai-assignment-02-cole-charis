@@ -3,3 +3,7 @@ numpy
 matplotlib
 seaborn
 scikit-learn
+xgboost
+optuna
+imbalanced-learn
+lightgbm

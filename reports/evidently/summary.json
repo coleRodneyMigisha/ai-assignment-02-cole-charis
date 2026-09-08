@@ -75,7 +75,7 @@
             "method": "Jensen-Shannon distance",
             "threshold": 0.1
           },
-          "value": 0.028477114341702102
+          "value": 0.028477114341701575
         },
         {
           "id": "e9a735b027dfb2fcabc0b100288fdcb9",
@@ -119,7 +119,7 @@
             "method": "Jensen-Shannon distance",
             "threshold": 0.1
           },
-          "value": 0.00989758726118907
+          "value": 0.009897587261189075
         },
         {
           "id": "d39b6dea9215e5b5dca513568cf19512",
@@ -141,7 +141,7 @@
             "method": "Jensen-Shannon distance",
             "threshold": 0.1
           },
-          "value": 0.020588608726485606
+          "value": 0.020588608726485633
         }
       ],
       "tests": []
@@ -213,7 +213,7 @@
             "method": "Jensen-Shannon distance",
             "threshold": 0.1
           },
-          "value": 0.028477114341702102
+          "value": 0.028477114341701575
         },
         {
           "id": "e9a735b027dfb2fcabc0b100288fdcb9",
@@ -257,7 +257,7 @@
             "method": "Jensen-Shannon distance",
             "threshold": 0.1
           },
-          "value": 0.00989758726118907
+          "value": 0.009897587261189075
         },
         {
           "id": "d39b6dea9215e5b5dca513568cf19512",
@@ -279,7 +279,7 @@
             "method": "Jensen-Shannon distance",
             "threshold": 0.1
           },
-          "value": 0.020588608726485606
+          "value": 0.020588608726485633
         },
         {
           "id": "bfc6e8246d39abff41fc2e002575d9a3",

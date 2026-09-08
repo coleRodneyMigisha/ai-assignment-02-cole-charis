@@ -8,6 +8,7 @@ binary focal-loss objective. Install optional dependencies with:
 """
 
 from pathlib import Path
+from typing import Any
 
 import numpy as np
 import pandas as pd
@@ -16,6 +17,7 @@ from sklearn.metrics import (
     accuracy_score,
     confusion_matrix,
     f1_score,
+    make_scorer,
     log_loss,
     mean_absolute_error,
     mean_squared_error,
@@ -59,7 +61,7 @@ def classification_metrics(
     y_true: pd.Series | np.ndarray,
     probabilities: np.ndarray,
     threshold: float = 0.5,
-) -> dict[str, float]:
+) -> dict[str, float | int | Any]:
     """Calculate metrics that expose the precision/recall trade-off."""
     predictions = (probabilities >= threshold).astype(int)
     return {

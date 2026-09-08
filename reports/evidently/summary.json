@@ -1,0 +1,456 @@
+{
+  "model": "Logistic Regression",
+  "reference_dataset": "Known_Patients_01.csv",
+  "current_dataset": "New_Patients_01.csv",
+  "reference_rows": 4644,
+  "current_rows": 466,
+  "known_positive_prediction_rate": 0.29285099052540914,
+  "new_positive_prediction_rate": 0.27896995708154504,
+  "known_mean_predicted_probability": 0.33267653544996323,
+  "new_mean_predicted_probability": 0.3182277327525464,
+  "performance_evaluation": {
+    "reference": "labelled training partition",
+    "current": "labelled stratified holdout partition",
+    "note": "This is a generalisation/performance comparison. New-patient model quality cannot be measured until ground-truth outcomes are collected."
+  },
+  "reports": {
+    "data_drift": "data_drift.html",
+    "prediction_drift": "prediction_drift.html",
+    "model_performance_drift": "model_performance_drift.html"
+  },
+  "evidently": {
+    "data_drift_summary": {
+      "metrics": [
+        {
+          "id": "15e89f895b482f9b84ba7274ed18a106",
+          "metric_name": "DriftedColumnsCount(drift_share=0.5)",
+          "config": {
+            "type": "evidently:metric_v2:DriftedColumnsCount",
+            "drift_share": 0.5
+          },
+          "value": {
+            "count": 0.0,
+            "share": 0.0
+          }
+        },
+        {
+          "id": "1cf7e5c2a8eb2a62a2667e70ee06d259",
+          "metric_name": "ValueDrift(column=age,method=Wasserstein distance (normed),threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "age",
+            "method": "Wasserstein distance (normed)",
+            "threshold": 0.1
+          },
+          "value": 0.06384705013215587
+        },
+        {
+          "id": "4d5d88821069ef846c3595ac97dd0c39",
+          "metric_name": "ValueDrift(column=avg_glucose_level,method=Wasserstein distance (normed),threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "avg_glucose_level",
+            "method": "Wasserstein distance (normed)",
+            "threshold": 0.1
+          },
+          "value": 0.03596527374039708
+        },
+        {
+          "id": "7fa08e97a1c4b580c32af8d07104c4d1",
+          "metric_name": "ValueDrift(column=bmi,method=Wasserstein distance (normed),threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "bmi",
+            "method": "Wasserstein distance (normed)",
+            "threshold": 0.1
+          },
+          "value": 0.07040710884232916
+        },
+        {
+          "id": "26425e6033477c9b119bf6af4e90d5b5",
+          "metric_name": "ValueDrift(column=gender,method=Jensen-Shannon distance,threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "gender",
+            "method": "Jensen-Shannon distance",
+            "threshold": 0.1
+          },
+          "value": 0.028477114341702102
+        },
+        {
+          "id": "e9a735b027dfb2fcabc0b100288fdcb9",
+          "metric_name": "ValueDrift(column=hypertension,method=Jensen-Shannon distance,threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "hypertension",
+            "method": "Jensen-Shannon distance",
+            "threshold": 0.1
+          },
+          "value": 0.030831266276415976
+        },
+        {
+          "id": "ad04f4c9f7e7c56cd3e55f59d64b3431",
+          "metric_name": "ValueDrift(column=heart_disease,method=Jensen-Shannon distance,threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "heart_disease",
+            "method": "Jensen-Shannon distance",
+            "threshold": 0.1
+          },
+          "value": 0.037035754760123905
+        },
+        {
+          "id": "622220a0517fb57e0f86f82874e5f984",
+          "metric_name": "ValueDrift(column=ever_married,method=Jensen-Shannon distance,threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "ever_married",
+            "method": "Jensen-Shannon distance",
+            "threshold": 0.1
+          },
+          "value": 0.029176468474040287
+        },
+        {
+          "id": "d0ca640963e90274a3e7991d28555999",
+          "metric_name": "ValueDrift(column=work_type,method=Jensen-Shannon distance,threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "work_type",
+            "method": "Jensen-Shannon distance",
+            "threshold": 0.1
+          },
+          "value": 0.009897587261189047
+        },
+        {
+          "id": "d39b6dea9215e5b5dca513568cf19512",
+          "metric_name": "ValueDrift(column=Residence_type,method=Jensen-Shannon distance,threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "Residence_type",
+            "method": "Jensen-Shannon distance",
+            "threshold": 0.1
+          },
+          "value": 0.0012339154202712494
+        },
+        {
+          "id": "9b4bbbf5165756242dd0f7d2fa7e2cdc",
+          "metric_name": "ValueDrift(column=smoking_status,method=Jensen-Shannon distance,threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "smoking_status",
+            "method": "Jensen-Shannon distance",
+            "threshold": 0.1
+          },
+          "value": 0.020588608726485616
+        }
+      ],
+      "tests": []
+    },
+    "prediction_drift_summary": {
+      "metrics": [
+        {
+          "id": "15e89f895b482f9b84ba7274ed18a106",
+          "metric_name": "DriftedColumnsCount(drift_share=0.5)",
+          "config": {
+            "type": "evidently:metric_v2:DriftedColumnsCount",
+            "drift_share": 0.5
+          },
+          "value": {
+            "count": 0.0,
+            "share": 0.0
+          }
+        },
+        {
+          "id": "1cf7e5c2a8eb2a62a2667e70ee06d259",
+          "metric_name": "ValueDrift(column=age,method=Wasserstein distance (normed),threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "age",
+            "method": "Wasserstein distance (normed)",
+            "threshold": 0.1
+          },
+          "value": 0.06384705013215587
+        },
+        {
+          "id": "4d5d88821069ef846c3595ac97dd0c39",
+          "metric_name": "ValueDrift(column=avg_glucose_level,method=Wasserstein distance (normed),threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "avg_glucose_level",
+            "method": "Wasserstein distance (normed)",
+            "threshold": 0.1
+          },
+          "value": 0.03596527374039708
+        },
+        {
+          "id": "7fa08e97a1c4b580c32af8d07104c4d1",
+          "metric_name": "ValueDrift(column=bmi,method=Wasserstein distance (normed),threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "bmi",
+            "method": "Wasserstein distance (normed)",
+            "threshold": 0.1
+          },
+          "value": 0.07040710884232916
+        },
+        {
+          "id": "d3c9f35922336c61e4be71d7d18245bf",
+          "metric_name": "ValueDrift(column=prediction_proba,method=Wasserstein distance (normed),threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "prediction_proba",
+            "method": "Wasserstein distance (normed)",
+            "threshold": 0.1
+          },
+          "value": 0.056350643799886434
+        },
+        {
+          "id": "26425e6033477c9b119bf6af4e90d5b5",
+          "metric_name": "ValueDrift(column=gender,method=Jensen-Shannon distance,threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "gender",
+            "method": "Jensen-Shannon distance",
+            "threshold": 0.1
+          },
+          "value": 0.028477114341702102
+        },
+        {
+          "id": "e9a735b027dfb2fcabc0b100288fdcb9",
+          "metric_name": "ValueDrift(column=hypertension,method=Jensen-Shannon distance,threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "hypertension",
+            "method": "Jensen-Shannon distance",
+            "threshold": 0.1
+          },
+          "value": 0.030831266276415976
+        },
+        {
+          "id": "ad04f4c9f7e7c56cd3e55f59d64b3431",
+          "metric_name": "ValueDrift(column=heart_disease,method=Jensen-Shannon distance,threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "heart_disease",
+            "method": "Jensen-Shannon distance",
+            "threshold": 0.1
+          },
+          "value": 0.037035754760123905
+        },
+        {
+          "id": "622220a0517fb57e0f86f82874e5f984",
+          "metric_name": "ValueDrift(column=ever_married,method=Jensen-Shannon distance,threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "ever_married",
+            "method": "Jensen-Shannon distance",
+            "threshold": 0.1
+          },
+          "value": 0.029176468474040287
+        },
+        {
+          "id": "d0ca640963e90274a3e7991d28555999",
+          "metric_name": "ValueDrift(column=work_type,method=Jensen-Shannon distance,threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "work_type",
+            "method": "Jensen-Shannon distance",
+            "threshold": 0.1
+          },
+          "value": 0.009897587261189047
+        },
+        {
+          "id": "d39b6dea9215e5b5dca513568cf19512",
+          "metric_name": "ValueDrift(column=Residence_type,method=Jensen-Shannon distance,threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "Residence_type",
+            "method": "Jensen-Shannon distance",
+            "threshold": 0.1
+          },
+          "value": 0.0012339154202712494
+        },
+        {
+          "id": "9b4bbbf5165756242dd0f7d2fa7e2cdc",
+          "metric_name": "ValueDrift(column=smoking_status,method=Jensen-Shannon distance,threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "smoking_status",
+            "method": "Jensen-Shannon distance",
+            "threshold": 0.1
+          },
+          "value": 0.020588608726485616
+        },
+        {
+          "id": "bfc6e8246d39abff41fc2e002575d9a3",
+          "metric_name": "ValueDrift(column=prediction,method=Jensen-Shannon distance,threshold=0.1)",
+          "config": {
+            "type": "evidently:metric_v2:ValueDrift",
+            "column": "prediction",
+            "method": "Jensen-Shannon distance",
+            "threshold": 0.1
+          },
+          "value": 0.01086179627013475
+        }
+      ],
+      "tests": []
+    },
+    "model_performance_summary": {
+      "metrics": [
+        {
+          "id": "e4f2ea2dab7ab3a65b16ef5124d02db4",
+          "metric_name": "Accuracy(classification_name=default)",
+          "config": {
+            "type": "evidently:metric_v2:Accuracy",
+            "classification_name": "default"
+          },
+          "value": 0.7491926803013994
+        },
+        {
+          "id": "3c2d79a01c4f6539c105bc7dff803faa",
+          "metric_name": "Precision(classification_name=default,conf_matrix=True,pr_curve=False,pr_table=False)",
+          "config": {
+            "type": "evidently:metric_v2:Precision",
+            "classification_name": "default",
+            "conf_matrix": true,
+            "pr_curve": false,
+            "pr_table": false
+          },
+          "value": 0.1444866920152091
+        },
+        {
+          "id": "11c1894b301e560af740a01ee9739c2a",
+          "metric_name": "Recall(classification_name=default,conf_matrix=True,pr_curve=False,pr_table=False)",
+          "config": {
+            "type": "evidently:metric_v2:Recall",
+            "classification_name": "default",
+            "conf_matrix": true,
+            "pr_curve": false,
+            "pr_table": false
+          },
+          "value": 0.8260869565217391
+        },
+        {
+          "id": "2df7cb543daa4f42d1d5cdad5bb551ae",
+          "metric_name": "F1Score(classification_name=default,conf_matrix=True)",
+          "config": {
+            "type": "evidently:metric_v2:F1Score",
+            "classification_name": "default",
+            "conf_matrix": true
+          },
+          "value": 0.2459546925566343
+        },
+        {
+          "id": "836d15857ce444b246783aad42a94779",
+          "metric_name": "RocAuc(classification_name=default,roc_curve=True,pr_table=False)",
+          "config": {
+            "type": "evidently:metric_v2:RocAuc",
+            "classification_name": "default",
+            "roc_curve": true,
+            "pr_table": false
+          },
+          "value": 0.866167708897533
+        },
+        {
+          "id": "275d2d67f1d9d892b74d8d9bdc07c233",
+          "metric_name": "LogLoss(classification_name=default,pr_table=False)",
+          "config": {
+            "type": "evidently:metric_v2:LogLoss",
+            "classification_name": "default",
+            "pr_table": false
+          },
+          "value": 0.48288120517909855
+        },
+        {
+          "id": "aede79b5b66270f86918a2111b694162",
+          "metric_name": "TPR(classification_name=default,pr_table=False)",
+          "config": {
+            "type": "evidently:metric_v2:TPR",
+            "classification_name": "default",
+            "pr_table": false
+          },
+          "value": 0.8260869565217391
+        },
+        {
+          "id": "48b057cb0301dad5740a4a1a25050ffe",
+          "metric_name": "TNR(classification_name=default,pr_table=False)",
+          "config": {
+            "type": "evidently:metric_v2:TNR",
+            "classification_name": "default",
+            "pr_table": false
+          },
+          "value": 0.7451868629671574
+        },
+        {
+          "id": "2e6d045688c97855c5661e6a8f6bd2e5",
+          "metric_name": "FPR(classification_name=default,pr_table=False)",
+          "config": {
+            "type": "evidently:metric_v2:FPR",
+            "classification_name": "default",
+            "pr_table": false
+          },
+          "value": 0.2548131370328426
+        },
+        {
+          "id": "d183f8fb51722080c04c08958a4579ff",
+          "metric_name": "FNR(classification_name=default,pr_table=False)",
+          "config": {
+            "type": "evidently:metric_v2:FNR",
+            "classification_name": "default",
+            "pr_table": false
+          },
+          "value": 0.17391304347826086
+        },
+        {
+          "id": "960da7cc5ae6dfee13853a0b222466ca",
+          "metric_name": "F1ByLabel(classification_name=default)",
+          "config": {
+            "type": "evidently:metric_v2:F1ByLabel",
+            "classification_name": "default"
+          },
+          "value": {
+            "0": 0.8495803744351195,
+            "1": 0.2459546925566343
+          }
+        },
+        {
+          "id": "57f465d9f518c33f7672e42e807a1737",
+          "metric_name": "PrecisionByLabel(classification_name=default)",
+          "config": {
+            "type": "evidently:metric_v2:PrecisionByLabel",
+            "classification_name": "default"
+          },
+          "value": {
+            "0": 0.987987987987988,
+            "1": 0.1444866920152091
+          }
+        },
+        {
+          "id": "66b666a06110f2e57883b2a7365fcf45",
+          "metric_name": "RecallByLabel(classification_name=default)",
+          "config": {
+            "type": "evidently:metric_v2:RecallByLabel",
+            "classification_name": "default"
+          },
+          "value": {
+            "0": 0.7451868629671574,
+            "1": 0.8260869565217391
+          }
+        },
+        {
+          "id": "c1d27bd176ffbcc8c6b5871f2d88e6e6",
+          "metric_name": "RocAucByLabel(classification_name=default)",
+          "config": {
+            "type": "evidently:metric_v2:RocAucByLabel",
+            "classification_name": "default"
+          },
+          "value": {
+            "0": 0.8661677088975331,
+            "1": 0.866167708897533
+          }
+        }
+      ],
+      "tests": []
+    }
+  }
+}

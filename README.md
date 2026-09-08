@@ -92,6 +92,12 @@ classification metric plots, log-loss plots, and CSV results under
 `plots/all_model_evaluation/`. MAE and RMSE are intentionally excluded because
 this is a classification task.
 
+The same script also performs systematic random-search tuning. It samples 12
+hyperparameter configurations per model, scores each configuration with 3-fold
+cross-validation on the training partition, and evaluates the selected model on
+an untouched holdout partition. Search is based on F1 because the target classes
+are imbalanced. The selected parameters are included in the Markdown report.
+
 ## Standalone data preparation
 
 Run the dedicated preparation script before modelling:

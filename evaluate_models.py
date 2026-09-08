@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 from sklearn.metrics import confusion_matrix, RocCurveDisplay
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import RandomizedSearchCV, train_test_split
 from sklearn.pipeline import Pipeline
 
 from train_classifiers import (
@@ -33,6 +33,8 @@ from train_advanced_classifiers import (
 
 OUTPUT_DIR = Path("plots/all_model_evaluation")
 REPORT_PATH = Path("reports/all_model_evaluation.md")
+RANDOM_SEARCH_ITERATIONS = 12
+RANDOM_SEARCH_CV = 3
 
 
 def evaluate_pipeline_models(X_train, y_train, X_test, y_test):
@@ -81,6 +83,147 @@ def evaluate_advanced_models(X_train, y_train, X_test, y_test):
             "metrics": calculate_metrics(y_test, predictions, probabilities),
         }
     return results
+
+
+def _collect_results(estimators, X_train, y_train, X_test, y_test):
+    """Fit estimators on matrices and return predictions plus metrics."""
+    results = {}
+    for name, estimator in estimators.items():
+        estimator.fit(X_train, y_train)
+        predictions = estimator.predict(X_test)
+        probabilities = estimator.predict_proba(X_test)[:, 1]
+        results[name] = {
+            "predictions": predictions,
+            "probabilities": probabilities,
+            "metrics": calculate_metrics(y_test, predictions, probabilities),
+        }
+    return results
+
+
+def group_a_search_spaces():
+    """Return reproducible random-search spaces for each Group A model."""
+    return {
+        "Logistic Regression": {
+            "model__C": [0.01, 0.1, 1.0, 10.0, 100.0],
+            "model__solver": ["liblinear", "lbfgs"],
+        },
+        "Decision Tree": {
+            "model__max_depth": [3, 5, 8, 12, None],
+            "model__min_samples_split": [2, 5, 10, 20],
+            "model__min_samples_leaf": [1, 2, 5, 10],
+            "model__criterion": ["gini", "entropy", "log_loss"],
+        },
+        "KNN": {
+            "model__n_neighbors": [3, 5, 7, 11, 15, 21],
+            "model__weights": ["uniform", "distance"],
+            "model__p": [1, 2],
+        },
+        "Naive Bayes": {
+            "model__var_smoothing": [1e-11, 1e-10, 1e-9, 1e-8, 1e-7],
+        },
+        "SVM": {
+            "model__C": [0.1, 1.0, 10.0, 100.0],
+            "model__kernel": ["linear", "rbf"],
+            "model__gamma": ["scale", "auto", 0.01, 0.1],
+        },
+        "Random Forest": {
+            "model__n_estimators": [100, 200, 400],
+            "model__max_depth": [None, 5, 10, 20],
+            "model__min_samples_split": [2, 5, 10],
+            "model__min_samples_leaf": [1, 2, 4],
+            "model__max_features": ["sqrt", "log2", None],
+        },
+    }
+
+
+def tune_group_a_models(X_train, y_train, X_test, y_test):
+    """Tune Group A pipelines using CV on train data and evaluate on holdout."""
+    results = {}
+    best_parameters = {}
+    for name, estimator in build_models().items():
+        pipeline = Pipeline(
+            [("preprocessor", build_preprocessor(X_train)), ("model", estimator)]
+        )
+        search = RandomizedSearchCV(
+            pipeline,
+            group_a_search_spaces()[name],
+            n_iter=RANDOM_SEARCH_ITERATIONS,
+            scoring="f1",
+            cv=RANDOM_SEARCH_CV,
+            random_state=RANDOM_STATE,
+            n_jobs=-1,
+            refit=True,
+        )
+        search.fit(X_train, y_train)
+        predictions = search.predict(X_test)
+        probabilities = search.predict_proba(X_test)[:, 1]
+        results[f"{name} tuned"] = {
+            "predictions": predictions,
+            "probabilities": probabilities,
+            "metrics": calculate_metrics(y_test, predictions, probabilities),
+        }
+        best_parameters[name] = search.best_params_
+    return results, best_parameters
+
+
+def advanced_search_spaces():
+    """Return random-search spaces for AdaBoost and XGBoost."""
+    return {
+        "AdaBoost": {
+            "n_estimators": [100, 200, 350, 500],
+            "learning_rate": [0.01, 0.03, 0.05, 0.1, 0.2, 0.5],
+        },
+        "XGBoost": {
+            "n_estimators": [100, 200, 300, 500],
+            "max_depth": [2, 3, 4, 5, 7],
+            "learning_rate": [0.01, 0.03, 0.05, 0.1, 0.2],
+            "min_child_weight": [1, 2, 5, 10],
+            "subsample": [0.7, 0.8, 0.9, 1.0],
+            "colsample_bytree": [0.7, 0.8, 0.9, 1.0],
+            "gamma": [0.0, 0.1, 0.5, 1.0],
+            "reg_alpha": [0.0, 0.01, 0.1, 1.0],
+            "reg_lambda": [1.0, 3.0, 10.0],
+        },
+    }
+
+
+def tune_advanced_models(X_train, y_train, X_test, y_test):
+    """Random-search Group B models on transformed training data."""
+    train_matrix, test_matrix, _ = transform_data(X_train, X_test, X_test)
+    candidates = {"AdaBoost": build_adaboost}
+    try:
+        candidates["XGBoost"] = build_xgboost
+    except ImportError as error:
+        print(f"Skipping XGBoost random search: {error}")
+
+    results = {}
+    best_parameters = {}
+    for name, builder in candidates.items():
+        try:
+            estimator = builder()
+        except ImportError as error:
+            print(f"Skipping {name} random search: {error}")
+            continue
+        search = RandomizedSearchCV(
+            estimator,
+            advanced_search_spaces()[name],
+            n_iter=RANDOM_SEARCH_ITERATIONS,
+            scoring="f1",
+            cv=RANDOM_SEARCH_CV,
+            random_state=RANDOM_STATE,
+            n_jobs=-1,
+            refit=True,
+        )
+        search.fit(train_matrix, y_train)
+        predictions = search.predict(test_matrix)
+        probabilities = search.predict_proba(test_matrix)[:, 1]
+        results[f"{name} random-search tuned"] = {
+            "predictions": predictions,
+            "probabilities": probabilities,
+            "metrics": calculate_metrics(y_test, predictions, probabilities),
+        }
+        best_parameters[name] = search.best_params_
+    return results, best_parameters
 
 
 def save_plots(results, y_test, output_dir=OUTPUT_DIR):
@@ -144,7 +287,7 @@ def save_plots(results, y_test, output_dir=OUTPUT_DIR):
     return metrics
 
 
-def write_report(metrics, path=REPORT_PATH):
+def write_report(metrics, best_parameters=None, path=REPORT_PATH):
     """Write the complete all-model evaluation as Markdown."""
     path.parent.mkdir(parents=True, exist_ok=True)
     rounded = metrics.reset_index().rename(columns={"index": "model"}).round(4)
@@ -161,6 +304,13 @@ def write_report(metrics, path=REPORT_PATH):
 
     best_f1 = metrics["f1"].idxmax()
     best_auc = metrics["roc_auc"].idxmax()
+    parameter_text = "No tuning results were recorded."
+    if best_parameters:
+        parameter_lines = [
+            f"- **{name}**: `{parameters}`"
+            for name, parameters in best_parameters.items()
+        ]
+        parameter_text = "\n".join(parameter_lines)
     report = f"""# All-Model Evaluation
 
 All models use the same stratified 20% holdout set. The target is a highly
@@ -181,6 +331,14 @@ alone.
 - ROC AUC measures ranking quality across thresholds.
 - Log loss measures the quality and confidence of predicted probabilities.
 
+## Random-search tuning
+
+RandomizedSearchCV selected hyperparameters using {RANDOM_SEARCH_CV}-fold cross-validation
+on the training partition. The holdout test partition was used only once for the
+final comparison. Search objective: F1 score.
+
+{parameter_text}
+
 ## Visualizations
 
 - `plots/all_model_evaluation/confusion_matrices_all_models.png`
@@ -198,9 +356,18 @@ def main():
         X, y, test_size=0.2, stratify=y, random_state=RANDOM_STATE
     )
     results = evaluate_pipeline_models(X_train, y_train, X_test, y_test)
+    tuned_group_a, group_a_parameters = tune_group_a_models(
+        X_train, y_train, X_test, y_test
+    )
+    results.update(tuned_group_a)
     results.update(evaluate_advanced_models(X_train, y_train, X_test, y_test))
+    tuned_advanced, advanced_parameters = tune_advanced_models(
+        X_train, y_train, X_test, y_test
+    )
+    results.update(tuned_advanced)
     metrics = save_plots(results, y_test)
-    write_report(metrics)
+    all_parameters = {**group_a_parameters, **advanced_parameters}
+    write_report(metrics, all_parameters)
     print(metrics.round(4).to_string())
     print(f"\nPlots written to {OUTPUT_DIR}/")
     print(f"Report written to {REPORT_PATH}")

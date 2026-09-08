@@ -6,16 +6,20 @@ The new-patient file is used only after model comparison to generate predictions
 
 from pathlib import Path
 
+import matplotlib.pyplot as plt
+import seaborn as sns
 import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
     accuracy_score,
+    confusion_matrix,
     f1_score,
     precision_score,
     recall_score,
     roc_auc_score,
+    log_loss,
 )
 from sklearn.model_selection import cross_validate, train_test_split
 from sklearn.naive_bayes import GaussianNB
@@ -30,6 +34,8 @@ from sklearn.tree import DecisionTreeClassifier
 TARGET_COLUMN = "cerebrovascular_accident"
 ID_COLUMNS = ["id"]
 RANDOM_STATE = 42
+METRICS_PLOT_DIR = Path("plots/classifier_metrics")
+METRICS_REPORT_PATH = Path("reports/classifier_evaluation.md")
 
 
 def load_datasets(
@@ -88,26 +94,56 @@ def build_preprocessor(X: pd.DataFrame) -> ColumnTransformer:
     )
 
 
+def build_logistic_regression() -> LogisticRegression:
+    return LogisticRegression(max_iter=1000, class_weight="balanced", random_state=RANDOM_STATE)
+
+
+def build_decision_tree() -> DecisionTreeClassifier:
+    return DecisionTreeClassifier(class_weight="balanced", random_state=RANDOM_STATE)
+
+
+def build_knn() -> KNeighborsClassifier:
+    return KNeighborsClassifier(n_neighbors=5)
+
+
+def build_naive_bayes() -> GaussianNB:
+    return GaussianNB()
+
+
+def build_svm() -> SVC:
+    return SVC(probability=True, class_weight="balanced", random_state=RANDOM_STATE)
+
+
+def build_random_forest() -> RandomForestClassifier:
+    return RandomForestClassifier(
+        n_estimators=200,
+        class_weight="balanced",
+        random_state=RANDOM_STATE,
+        n_jobs=-1,
+    )
+
+
 def build_models() -> dict[str, object]:
-    """Return the six requested classifiers with reproducible settings."""
+    """Return each requested Group A classifier from its individual builder."""
     return {
-        "Logistic Regression": LogisticRegression(
-            max_iter=1000, class_weight="balanced", random_state=RANDOM_STATE
-        ),
-        "Decision Tree": DecisionTreeClassifier(
-            class_weight="balanced", random_state=RANDOM_STATE
-        ),
-        "KNN": KNeighborsClassifier(n_neighbors=5),
-        "Naive Bayes": GaussianNB(),
-        "SVM": SVC(
-            probability=True, class_weight="balanced", random_state=RANDOM_STATE
-        ),
-        "Random Forest": RandomForestClassifier(
-            n_estimators=200,
-            class_weight="balanced",
-            random_state=RANDOM_STATE,
-            n_jobs=-1,
-        ),
+        "Logistic Regression": build_logistic_regression(),
+        "Decision Tree": build_decision_tree(),
+        "KNN": build_knn(),
+        "Naive Bayes": build_naive_bayes(),
+        "SVM": build_svm(),
+        "Random Forest": build_random_forest(),
+    }
+
+
+def calculate_metrics(y_true, predictions, probabilities) -> dict[str, float]:
+    """Calculate classification and probability-error metrics."""
+    return {
+        "accuracy": accuracy_score(y_true, predictions),
+        "precision": precision_score(y_true, predictions, zero_division=0),
+        "recall": recall_score(y_true, predictions, zero_division=0),
+        "f1": f1_score(y_true, predictions, zero_division=0),
+        "roc_auc": roc_auc_score(y_true, probabilities),
+        "log_loss": log_loss(y_true, probabilities, labels=[0, 1]),
     }
 
 
@@ -143,21 +179,142 @@ def evaluate_models(
         pipeline.fit(X_train, y_train)
         predictions = pipeline.predict(X_test)
         probabilities = pipeline.predict_proba(X_test)[:, 1]
+        test_metrics = calculate_metrics(y_test, predictions, probabilities)
         results.append(
             {
                 "model": name,
                 "cv_f1_mean": cv_scores["test_f1"].mean(),
                 "cv_roc_auc_mean": cv_scores["test_roc_auc"].mean(),
-                "test_accuracy": accuracy_score(y_test, predictions),
-                "test_precision": precision_score(y_test, predictions, zero_division=0),
-                "test_recall": recall_score(y_test, predictions, zero_division=0),
-                "test_f1": f1_score(y_test, predictions, zero_division=0),
-                "test_roc_auc": roc_auc_score(y_test, probabilities),
+                **{f"test_{key}": value for key, value in test_metrics.items()},
             }
         )
         fitted_pipelines[name] = pipeline
 
     return pd.DataFrame(results).sort_values("test_f1", ascending=False), fitted_pipelines
+
+
+def save_evaluation_plots(
+    evaluation_data: dict[str, dict],
+    output_dir: Path = METRICS_PLOT_DIR,
+) -> None:
+    """Save one confusion matrix per model plus shared metric plots."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    model_names = list(evaluation_data)
+    metrics = pd.DataFrame(
+        {name: details["metrics"] for name, details in evaluation_data.items()}
+    ).T
+
+    for name, details in evaluation_data.items():
+        matrix = confusion_matrix(details["y_test"], details["predictions"])
+        figure, axis = plt.subplots(figsize=(5, 4))
+        sns.heatmap(matrix, annot=True, fmt="d", cmap="Blues", cbar=False, ax=axis)
+        axis.set_title(f"{name} confusion matrix")
+        axis.set_xlabel("Predicted label")
+        axis.set_ylabel("Actual label")
+        figure.tight_layout()
+        safe_name = name.lower().replace(" ", "_")
+        figure.savefig(output_dir / f"confusion_matrix_{safe_name}.png", dpi=150)
+        plt.close(figure)
+
+    figure, axis = plt.subplots(figsize=(8, 6))
+    for name, details in evaluation_data.items():
+        from sklearn.metrics import RocCurveDisplay
+
+        RocCurveDisplay.from_predictions(
+            details["y_test"], details["probabilities"], name=name, ax=axis
+        )
+    axis.set_title("ROC curves: Group A classifiers")
+    figure.tight_layout()
+    figure.savefig(output_dir / "roc_curves_all_models.png", dpi=150)
+    plt.close(figure)
+
+    metric_columns = ["accuracy", "precision", "recall", "f1", "roc_auc"]
+    metrics[metric_columns].plot.bar(figsize=(12, 6), ylim=(0, 1))
+    plt.title("Classification metrics by model")
+    plt.ylabel("Score")
+    plt.xlabel("Model")
+    plt.xticks(rotation=30, ha="right")
+    plt.tight_layout()
+    plt.savefig(output_dir / "classification_metrics_all_models.png", dpi=150)
+    plt.close()
+
+    metrics[["log_loss"]].plot.bar(figsize=(8, 6))
+    plt.title("Log loss by model")
+    plt.ylabel("Log loss (lower is better)")
+    plt.xlabel("Model")
+    plt.xticks(rotation=30, ha="right")
+    plt.tight_layout()
+    plt.savefig(output_dir / "log_loss_all_models.png", dpi=150)
+    plt.close()
+    metrics.to_csv(output_dir / "all_model_metrics.csv")
+
+
+def evaluate_models_individually(X: pd.DataFrame, y: pd.Series) -> tuple[pd.DataFrame, dict]:
+    """Evaluate every model and retain predictions for model-specific plots."""
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, stratify=y, random_state=RANDOM_STATE
+    )
+    evaluation_data = {}
+    for name, model in build_models().items():
+        pipeline = Pipeline(
+            steps=[("preprocessor", build_preprocessor(X_train)), ("model", model)]
+        )
+        pipeline.fit(X_train, y_train)
+        predictions = pipeline.predict(X_test)
+        probabilities = pipeline.predict_proba(X_test)[:, 1]
+        evaluation_data[name] = {
+            "model": pipeline,
+            "y_test": y_test,
+            "predictions": predictions,
+            "probabilities": probabilities,
+            "metrics": calculate_metrics(y_test, predictions, probabilities),
+        }
+    rows = [dict(model=name, **details["metrics"]) for name, details in evaluation_data.items()]
+    return pd.DataFrame(rows).sort_values("f1", ascending=False), evaluation_data
+
+
+def write_evaluation_report(results: pd.DataFrame, path: Path = METRICS_REPORT_PATH) -> None:
+    """Write all Group A metrics and their interpretation to Markdown."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    rounded_results = results.round(4)
+    try:
+        table = rounded_results.to_markdown(index=False)
+    except ImportError:
+        # Keep report generation working when the optional tabulate package is absent.
+        headers = "| " + " | ".join(rounded_results.columns) + " |"
+        separator = "| " + " | ".join("---" for _ in rounded_results.columns) + " |"
+        rows = [
+            "| " + " | ".join(str(value) for value in row) + " |"
+            for row in rounded_results.itertuples(index=False, name=None)
+        ]
+        table = "\n".join([headers, separator, *rows])
+    report = f"""# Group A Classifier Evaluation
+
+The models were evaluated on the same stratified 20% holdout set. The target is
+binary and imbalanced, so accuracy is reported together with precision, recall,
+F1, ROC AUC, and log loss.
+
+## Results
+
+{table}
+
+## Metric interpretation
+
+- **Accuracy**: fraction of all predictions that are correct; can be misleading when the negative class dominates.
+- **Precision**: fraction of predicted positive patients who are truly positive; higher precision means fewer false alarms.
+- **Recall**: fraction of actual positive patients detected; higher recall means fewer missed cases.
+- **F1**: harmonic mean of precision and recall; useful when both error types matter.
+- **ROC AUC**: threshold-independent ranking quality; 0.5 is random and 1.0 is perfect.
+- **Log loss**: probability quality; confident incorrect probabilities receive a large penalty.
+
+## Plots
+
+- `plots/classifier_metrics/roc_curves_all_models.png`
+- `plots/classifier_metrics/classification_metrics_all_models.png`
+- `plots/classifier_metrics/log_loss_all_models.png`
+- Individual confusion matrices are saved in the same directory.
+"""
+    path.write_text(report, encoding="utf-8")
 
 
 def fit_best_model(
@@ -200,13 +357,20 @@ def main() -> None:
     X, y, X_new = prepare_features(known, new)
     models = build_models()
     results, _ = evaluate_models(X, y, models)
+    individual_results, evaluation_data = evaluate_models_individually(X, y)
+    save_evaluation_plots(evaluation_data)
+    write_evaluation_report(individual_results)
 
     print("Task: binary supervised classification")
     print(f"Target: {TARGET_COLUMN} (classes: {sorted(y.unique().tolist())})")
-    print("\nModel comparison (ranked by holdout F1):")
+    print("\nModel comparison including cross-validation and holdout metrics:")
     print(results.round(3).to_string(index=False))
+    print("\nComplete individual evaluation metrics:")
+    print(individual_results.round(3).to_string(index=False))
+    print(f"\nPlots written to {METRICS_PLOT_DIR}/")
+    print(f"Markdown report written to {METRICS_REPORT_PATH}")
 
-    best_model_name = results.iloc[0]["model"]
+    best_model_name = individual_results.iloc[0]["model"]
     best_model = fit_best_model(best_model_name, models, X, y)
     predictions = predict_new_patients(best_model, X_new)
     output = add_predictions(new, predictions)

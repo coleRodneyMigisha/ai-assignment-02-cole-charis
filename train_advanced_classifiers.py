@@ -17,8 +17,6 @@ from sklearn.metrics import (
     confusion_matrix,
     f1_score,
     log_loss,
-    mean_absolute_error,
-    mean_squared_error,
     precision_score,
     recall_score,
     roc_auc_score,
@@ -69,8 +67,6 @@ def classification_metrics(
         "precision": precision_score(y_true, predictions, zero_division=0),
         "recall": recall_score(y_true, predictions, zero_division=0),
         "f1": f1_score(y_true, predictions, zero_division=0),
-        "mae": mean_absolute_error(y_true, probabilities),
-        "rmse": mean_squared_error(y_true, probabilities) ** 0.5,
     }
 
 

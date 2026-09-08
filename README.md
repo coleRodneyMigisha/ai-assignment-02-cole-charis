@@ -73,12 +73,24 @@ Metric implications:
 - **ROC AUC** measures ranking quality across all thresholds; `0.5` is random and
 	`1.0` is perfect separation.
 - **Log loss** penalizes incorrect probabilities, especially confident wrong ones.
-- **MAE** and **RMSE** are included as probability-error diagnostics against binary
-	labels. They are not substitutes for classification metrics. RMSE penalizes large
-	probability errors more heavily than MAE.
 
 For the medical use case, select a threshold based on the cost of false negatives,
 then report the resulting precision and recall alongside ROC AUC and log loss.
+
+## Evaluate all models
+
+Run the combined evaluator to compare Group A and Group B models on the same
+stratified holdout set:
+
+```bash
+python evaluate_models.py
+```
+
+The evaluator writes the complete metrics table to
+`reports/all_model_evaluation.md` and saves confusion matrices, ROC curves,
+classification metric plots, log-loss plots, and CSV results under
+`plots/all_model_evaluation/`. MAE and RMSE are intentionally excluded because
+this is a classification task.
 
 ## Standalone data preparation
 

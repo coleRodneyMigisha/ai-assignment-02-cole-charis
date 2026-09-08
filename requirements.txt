@@ -10,3 +10,4 @@ lightgbm
 shap
 lime
 evidently
+tabulate

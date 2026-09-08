@@ -119,7 +119,7 @@
             "method": "Jensen-Shannon distance",
             "threshold": 0.1
           },
-          "value": 0.009897587261189047
+          "value": 0.00989758726118907
         },
         {
           "id": "d39b6dea9215e5b5dca513568cf19512",
@@ -141,7 +141,7 @@
             "method": "Jensen-Shannon distance",
             "threshold": 0.1
           },
-          "value": 0.020588608726485616
+          "value": 0.020588608726485606
         }
       ],
       "tests": []
@@ -257,7 +257,7 @@
             "method": "Jensen-Shannon distance",
             "threshold": 0.1
           },
-          "value": 0.009897587261189047
+          "value": 0.00989758726118907
         },
         {
           "id": "d39b6dea9215e5b5dca513568cf19512",
@@ -279,7 +279,7 @@
             "method": "Jensen-Shannon distance",
             "threshold": 0.1
           },
-          "value": 0.020588608726485616
+          "value": 0.020588608726485606
         },
         {
           "id": "bfc6e8246d39abff41fc2e002575d9a3",

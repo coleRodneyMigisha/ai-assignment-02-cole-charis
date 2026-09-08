@@ -13,7 +13,6 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
     accuracy_score,
     f1_score,
-    make_scorer,
     precision_score,
     recall_score,
     roc_auc_score,
@@ -25,7 +24,6 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
-from sklearn.calibration import CalibratedClassifierCV
 from sklearn.tree import DecisionTreeClassifier
 
 
@@ -101,14 +99,8 @@ def build_models() -> dict[str, object]:
         ),
         "KNN": KNeighborsClassifier(n_neighbors=5),
         "Naive Bayes": GaussianNB(),
-        "SVM": CalibratedClassifierCV(
-            estimator=SVC(
-                class_weight="balanced",
-                random_state=RANDOM_STATE,
-            ),
-            method="sigmoid",
-            cv=5,
-            ensemble=False,
+        "SVM": SVC(
+            probability=True, class_weight="balanced", random_state=RANDOM_STATE
         ),
         "Random Forest": RandomForestClassifier(
             n_estimators=200,
@@ -135,7 +127,7 @@ def evaluate_models(
     )
     scoring = {
         "accuracy": "accuracy",
-        "precision": make_scorer(precision_score, zero_division=0),
+        "precision": "precision",
         "recall": "recall",
         "f1": "f1",
         "roc_auc": "roc_auc",

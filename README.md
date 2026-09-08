@@ -80,6 +80,41 @@ Metric implications:
 For the medical use case, select a threshold based on the cost of false negatives,
 then report the resulting precision and recall alongside ROC AUC and log loss.
 
+## Standalone data preparation
+
+Run the dedicated preparation script before modelling:
+
+```bash
+python data_preparation.py
+```
+
+It reads `Known_Patients_01.csv` and `New_Patients_01.csv`, removes identifier
+columns, validates the binary target, imputes missing numeric values with the
+training median, imputes missing categorical values with the most frequent value,
+one-hot encodes nominal categories, and standardises numeric features. The
+transformer is fitted on known patients only and then applied to new patients to
+avoid data leakage.
+
+Prepared files are written to `prepared_data/`:
+
+- `known_prepared.csv`
+- `new_prepared.csv`
+- `preparation_metadata.json`
+
+## Complete workflow
+
+Run the assignment workflow from the repository root:
+
+```bash
+python main.py
+```
+
+This generates EDA plots, Group A and Group B metric reports, predictions for the
+new patients, and XAI outputs under `plots/xai/`. The aggregate advanced report is
+`reports/advanced_metrics.csv`; optional Optuna, SMOTE, LightGBM, SHAP, and LIME
+experiments print an install message when their packages are unavailable. Evidently
+drift configuration is intentionally reserved for the project owner.
+
 Install the optional packages first:
 
 ```bash

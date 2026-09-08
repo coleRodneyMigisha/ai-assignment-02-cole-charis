@@ -1,0 +1,46 @@
+{
+  "target": "cerebrovascular_accident",
+  "task": "binary classification",
+  "input_features": [
+    "gender",
+    "age",
+    "hypertension",
+    "heart_disease",
+    "ever_married",
+    "work_type",
+    "Residence_type",
+    "avg_glucose_level",
+    "bmi",
+    "smoking_status"
+  ],
+  "numeric_features": [
+    "age",
+    "hypertension",
+    "heart_disease",
+    "avg_glucose_level",
+    "bmi"
+  ],
+  "categorical_features": [
+    "gender",
+    "ever_married",
+    "work_type",
+    "Residence_type",
+    "smoking_status"
+  ],
+  "encoded_feature_count": 21,
+  "target_distribution": {
+    "0": 4412,
+    "1": 232
+  },
+  "preparation": {
+    "numeric_missing_values": "median imputation",
+    "categorical_missing_values": "most frequent imputation",
+    "categorical_encoder": "one-hot encoding",
+    "numeric_scaler": "standard scaling",
+    "identifier_columns_removed": [
+      "id",
+      "patient_id",
+      "patientid"
+    ]
+  }
+}

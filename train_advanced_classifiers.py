@@ -343,10 +343,18 @@ def train_lightgbm_focal(
 def main(n_trials: int = 20) -> None:
     known, new = load_datasets()
     X, y, X_new = prepare_features(known, new)
-    X_train, X_test, y_train, y_test = train_test_split(
+    X_train_full, X_test, y_train_full, y_test = train_test_split(
         X, y, test_size=0.2, stratify=y, random_state=RANDOM_STATE
     )
+    X_train, X_validation, y_train, y_validation = train_test_split(
+        X_train_full,
+        y_train_full,
+        test_size=0.2,
+        stratify=y_train_full,
+        random_state=RANDOM_STATE,
+    )
     train_matrix, test_matrix, new_matrix = transform_data(X_train, X_test, X_new)
+    _, validation_matrix, _ = transform_data(X_train, X_validation, X_new)
 
     adjusted_models = {
         "AdaBoost baseline": build_adaboost(),
@@ -367,7 +375,9 @@ def main(n_trials: int = 20) -> None:
     print("\nImbalance comparison:")
     print(compare_imbalance_strategies(train_matrix, y_train, test_matrix, y_test).round(3).to_string(index=False))
 
-    study, tuned_model = tune_xgboost(train_matrix, y_train, test_matrix, y_test, n_trials)
+    study, tuned_model = tune_xgboost(
+        train_matrix, y_train, validation_matrix, y_validation, n_trials
+    )
     tuned_model.fit(train_matrix, y_train)
     tuned_metrics = classification_metrics(y_test, tuned_model.predict_proba(test_matrix)[:, 1])
     print("\nBest XGBoost parameters:", study.best_params)

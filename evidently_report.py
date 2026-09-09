@@ -18,10 +18,14 @@ True current-cohort model quality requires outcomes collected later.
 from __future__ import annotations
 
 import argparse
+import os
 from pathlib import Path
 import sys
 
 import pandas as pd
+
+# Avoid the Windows WMIC warning emitted by joblib during model comparison.
+os.environ.setdefault("LOKY_MAX_CPU_COUNT", "1")
 
 # Make the script runnable from the project root as well as from this directory.
 PROJECT_DIR = Path(__file__).resolve().parent

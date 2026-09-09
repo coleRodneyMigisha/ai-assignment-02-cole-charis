@@ -110,15 +110,22 @@ def run_evidently_monitoring(
     """
     try:
         from evidently.presets import Classification, DataDrift
-    except ImportError as error:
+    except (ImportError, TypeError) as error:
+        if isinstance(error, TypeError) and "instance lay-out conflict" in str(error):
+            raise RuntimeError(
+                "Evidently could not load because Pydantic is incompatible with "
+                "the active environment. This project requires pydantic==1.10.17. "
+                "Run `python -m pip install --force-reinstall pydantic==1.10.17` "
+                "and retry."
+            ) from error
         try:
             from evidently.presets import ClassificationPreset as Classification
             from evidently.presets import DataDriftPreset as DataDrift
-        except ImportError:
+        except (ImportError, TypeError) as fallback_error:
             raise RuntimeError(
-                "Evidently is required. Install project dependencies with "
-                "`pip install -r requirements.txt`."
-            ) from error
+                "Evidently is required and could not be imported. Install project "
+                "dependencies with `python -m pip install -r requirements.txt`."
+            ) from fallback_error
 
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)

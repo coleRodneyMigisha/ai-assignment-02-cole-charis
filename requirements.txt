@@ -9,5 +9,6 @@ imbalanced-learn
 lightgbm
 shap
 lime
-evidently
+evidently==0.7.21
+pydantic==1.10.17
 tabulate

@@ -82,3 +82,6 @@
 
   The code passes syntax compilation, and the dataset/CSV extraction is consistent. The biggest gaps are classification-correct EDA, valid model evaluation, XAI, Evidently drift analysis, and the final
   presentation.
+
+
+- originally had pydantic 2.13.5, changed to pydantic 1.10.17

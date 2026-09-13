@@ -1,0 +1,467 @@
+id,gender,age,hypertension,heart_disease,ever_married,work_type,residence_type,avg_glucose_level,bmi,smoking_status,stroke,predicted_risk_probability,chronic_clinic_review
+37492,Female,33.0,0,0,Yes,Private,Rural,88.17,38.6,formerly smoked,,0.012869901,Routine risk review
+45658,Male,14.0,0,0,No,Private,Rural,84.41,33.9,never smoked,,0.006540963,Routine risk review
+6264,Male,32.0,0,0,Yes,Private,Rural,72.34,32.2,Unknown,,0.009662863,Routine risk review
+37507,Female,32.0,0,0,No,Private,Rural,68.72,25.1,never smoked,,0.008825484,Routine risk review
+50557,Female,68.0,0,0,Yes,Self-employed,Urban,222.58,37.4,smokes,,0.3018375,Routine risk review
+21973,Male,70.0,0,0,Yes,Private,Rural,66.06,30.1,formerly smoked,,0.2009993,Routine risk review
+53346,Female,24.0,0,0,Yes,Private,Rural,156.43,27.0,formerly smoked,,0.015322712,Routine risk review
+41210,Male,44.0,0,0,No,Self-employed,Urban,105.76,32.4,formerly smoked,,0.016700068,Routine risk review
+29078,Male,39.0,0,0,Yes,Govt_job,Rural,73.07,26.8,smokes,,0.04068802,Routine risk review
+24873,Female,81.0,0,0,Yes,Private,Rural,99.48,27.2,never smoked,,0.37710252,Routine risk review
+15387,Male,19.0,0,0,No,Private,Rural,79.6,36.7,Unknown,,0.00691624,Routine risk review
+63880,Female,69.0,0,0,Yes,Self-employed,Urban,70.0,36.0,never smoked,,0.12802055,Routine risk review
+49833,Female,42.0,0,0,Yes,Govt_job,Rural,112.98,37.2,formerly smoked,,0.02670135,Routine risk review
+43773,Male,8.0,0,0,No,children,Urban,61.07,19.1,Unknown,,0.0029704648,Routine risk review
+53095,Male,8.0,0,0,No,children,Rural,63.43,21.8,Unknown,,0.007118782,Routine risk review
+56185,Female,28.0,0,0,No,Private,Urban,73.2,26.5,smokes,,0.014341971,Routine risk review
+57043,Female,66.0,0,0,Yes,Self-employed,Urban,102.73,35.0,formerly smoked,,0.15773489,Routine risk review
+55545,Female,66.0,0,0,Yes,Self-employed,Rural,74.88,32.6,never smoked,,0.11030286,Routine risk review
+60899,Female,47.0,0,0,Yes,Private,Urban,122.43,23.9,never smoked,,0.05125578,Routine risk review
+16136,Female,78.0,0,0,Yes,Self-employed,Urban,84.21,33.7,never smoked,,0.1956622,Routine risk review
+11843,Female,65.0,0,0,Yes,Self-employed,Rural,80.42,29.4,formerly smoked,,0.13881123,Routine risk review
+3609,Male,78.0,0,0,Yes,Private,Urban,80.44,29.0,never smoked,,0.2698029,Routine risk review
+29172,Female,68.0,0,0,Yes,Self-employed,Rural,80.63,20.2,never smoked,,0.15130083,Routine risk review
+49894,Female,78.0,1,1,Yes,Private,Rural,206.53,,never smoked,,0.65041643,High risk review
+6048,Female,65.0,0,0,Yes,Private,Urban,104.12,27.4,never smoked,,0.2910069,Routine risk review
+16029,Female,70.0,0,0,Yes,Self-employed,Rural,96.82,25.0,never smoked,,0.1274293,Routine risk review
+63022,Female,59.0,0,0,Yes,Self-employed,Urban,88.1,30.7,never smoked,,0.11026866,Routine risk review
+40041,Male,31.0,0,0,No,Self-employed,Rural,64.85,23.0,Unknown,,0.0057805832,Routine risk review
+6924,Female,32.0,0,0,Yes,Private,Rural,102.87,26.6,smokes,,0.015757581,Routine risk review
+22590,Male,5.0,0,0,No,children,Urban,83.75,18.1,Unknown,,0.0020182598,Routine risk review
+25878,Male,55.0,0,0,Yes,Self-employed,Rural,97.68,47.1,formerly smoked,,0.07914166,Routine risk review
+11169,Female,61.0,0,0,Yes,Private,Urban,97.58,29.7,formerly smoked,,0.1780059,Routine risk review
+44355,Female,48.0,0,0,Yes,Private,Rural,74.16,19.9,never smoked,,0.022274546,Routine risk review
+31113,Female,1.16,0,0,No,children,Urban,86.0,13.3,Unknown,,0.011395318,Routine risk review
+46514,Female,50.0,0,0,Yes,Govt_job,Urban,100.93,32.7,never smoked,,0.07292387,Routine risk review
+67466,Male,63.0,1,0,Yes,Private,Urban,232.78,31.8,formerly smoked,,0.31878653,Routine risk review
+3612,Male,67.0,0,0,Yes,Private,Rural,86.96,31.4,formerly smoked,,0.18809411,Routine risk review
+66590,Female,43.0,0,0,Yes,Self-employed,Urban,67.5,20.4,formerly smoked,,0.026459143,Routine risk review
+19611,Male,59.0,0,0,Yes,Private,Urban,81.21,33.2,smokes,,0.12645438,Routine risk review
+47216,Male,47.0,0,0,Yes,Private,Rural,110.14,30.5,smokes,,0.062151995,Routine risk review
+55591,Male,50.0,0,0,Yes,Private,Urban,120.44,30.3,never smoked,,0.09091753,Routine risk review
+24381,Male,51.0,0,1,Yes,Self-employed,Urban,187.47,34.2,never smoked,,0.10291298,Routine risk review
+8037,Male,44.0,0,1,No,Govt_job,Urban,94.62,34.4,Unknown,,0.012800668,Routine risk review
+23911,Female,39.0,0,0,No,Private,Rural,89.57,48.1,never smoked,,0.0290165,Routine risk review
+31596,Female,24.0,0,0,No,Private,Urban,95.31,22.8,never smoked,,0.006095115,Routine risk review
+44647,Male,62.0,0,0,No,Govt_job,Rural,75.07,30.5,never smoked,,0.10098188,Routine risk review
+51486,Female,61.0,0,0,Yes,Private,Rural,106.65,35.9,formerly smoked,,0.22187483,Routine risk review
+18263,Female,78.0,0,0,Yes,Self-employed,Urban,234.06,33.7,never smoked,,0.3711198,Routine risk review
+41930,Male,15.0,0,0,No,Private,Rural,144.15,24.1,never smoked,,0.0042765373,Routine risk review
+45922,Female,23.0,0,0,No,Private,Urban,58.81,25.4,never smoked,,0.008973077,Routine risk review
+52934,Male,79.0,0,0,Yes,Self-employed,Urban,242.62,25.5,never smoked,,0.26810646,Routine risk review
+18020,Male,57.0,0,0,Yes,Private,Urban,93.04,29.2,never smoked,,0.12706137,Routine risk review
+2044,Female,70.0,0,1,Yes,Self-employed,Rural,65.68,,Unknown,,0.2684523,Routine risk review
+63467,Male,9.0,0,0,No,children,Urban,150.0,17.4,Unknown,,0.00198901,Routine risk review
+38642,Male,55.0,0,0,Yes,Private,Urban,63.56,29.9,Unknown,,0.099862345,Routine risk review
+5387,Female,82.0,0,0,No,Private,Rural,96.98,21.5,never smoked,,0.29347527,Routine risk review
+68417,Female,19.0,0,0,No,Private,Rural,66.7,24.7,never smoked,,0.006448057,Routine risk review
+22477,Male,41.0,0,0,Yes,Private,Rural,79.66,25.1,Unknown,,0.011582073,Routine risk review
+23968,Female,79.0,0,0,Yes,Govt_job,Rural,90.16,34.4,never smoked,,0.15667486,Routine risk review
+8111,Female,23.0,0,0,No,Private,Rural,104.09,27.9,Unknown,,0.009580569,Routine risk review
+15282,Female,77.0,0,0,Yes,Private,Rural,90.96,31.5,formerly smoked,,0.31705716,Routine risk review
+54395,Female,78.0,1,0,Yes,Self-employed,Rural,152.38,31.8,never smoked,,0.3967299,Routine risk review
+25408,Female,24.0,0,0,Yes,Self-employed,Rural,114.54,30.1,smokes,,0.014528778,Routine risk review
+69284,Female,81.0,1,0,Yes,Self-employed,Urban,174.54,26.4,never smoked,,0.5723612,High risk review
+28348,Female,46.0,0,0,Yes,Private,Rural,106.47,27.2,Unknown,,0.08040311,Routine risk review
+46015,Female,29.0,0,0,No,Private,Urban,73.63,22.5,smokes,,0.009078077,Routine risk review
+69047,Female,59.0,0,0,Yes,Govt_job,Urban,98.52,29.8,formerly smoked,,0.16902137,Routine risk review
+39706,Male,41.0,0,0,Yes,Self-employed,Rural,62.93,26.1,smokes,,0.015404152,Routine risk review
+9143,Female,17.0,0,0,No,Private,Urban,67.87,24.9,formerly smoked,,0.010060277,Routine risk review
+64879,Female,8.0,0,0,No,children,Rural,120.43,23.5,Unknown,,0.00685158,Routine risk review
+17130,Female,23.0,0,0,No,Private,Rural,76.56,30.1,never smoked,,0.015390504,Routine risk review
+16420,Female,45.0,0,0,Yes,Private,Urban,108.03,37.3,never smoked,,0.06823408,Routine risk review
+7529,Male,67.0,0,0,Yes,Private,Rural,83.16,25.5,formerly smoked,,0.13996899,Routine risk review
+54022,Female,78.0,0,0,Yes,Self-employed,Rural,67.9,35.3,never smoked,,0.14554876,Routine risk review
+35660,Male,18.0,0,0,No,Private,Rural,115.46,27.6,Unknown,,0.007224654,Routine risk review
+50605,Female,35.0,0,0,Yes,Private,Rural,123.94,28.7,never smoked,,0.011622154,Routine risk review
+27803,Female,54.0,0,0,Yes,Govt_job,Urban,231.54,29.9,never smoked,,0.16163993,Routine risk review
+68981,Female,71.0,1,0,Yes,Govt_job,Urban,219.8,34.2,formerly smoked,,0.30897012,Routine risk review
+61505,Female,24.0,0,0,No,Private,Rural,187.99,24.9,smokes,,0.0062832115,Routine risk review
+70677,Male,60.0,0,0,Yes,Private,Rural,234.45,36.8,formerly smoked,,0.33343333,Routine risk review
+49620,Male,75.0,0,0,Yes,Private,Rural,75.47,24.5,formerly smoked,,0.33292127,Routine risk review
+5319,Male,48.0,0,0,Yes,Private,Rural,98.24,34.6,never smoked,,0.046170667,Routine risk review
+51100,Male,62.0,0,0,Yes,Govt_job,Rural,66.2,30.0,Unknown,,0.10975299,Routine risk review
+163,Female,20.0,0,0,No,Private,Rural,94.67,28.8,Unknown,,0.007908103,Routine risk review
+55140,Male,69.0,1,0,No,Private,Urban,75.95,28.6,never smoked,,0.3602657,Routine risk review
+52882,Female,60.0,0,0,Yes,Govt_job,Rural,111.79,23.6,smokes,,0.16234295,Routine risk review
+54344,Female,12.0,0,0,No,children,Rural,80.89,20.1,Unknown,,0.0047424105,Routine risk review
+2550,Female,28.0,0,0,Yes,Govt_job,Rural,86.91,21.1,formerly smoked,,0.006310312,Routine risk review
+58610,Female,55.0,0,0,Yes,Private,Urban,59.36,34.1,smokes,,0.09272977,Routine risk review
+16902,Female,70.0,0,1,Yes,Self-employed,Urban,240.69,,smokes,,0.43967238,Routine risk review
+60603,Female,51.0,0,0,No,Private,Rural,66.67,29.5,never smoked,,0.087069586,Routine risk review
+808,Female,16.0,0,0,No,Private,Rural,87.54,37.8,never smoked,,0.007346661,Routine risk review
+61881,Male,56.0,0,0,No,Self-employed,Urban,139.87,31.2,smokes,,0.096624374,Routine risk review
+41600,Male,52.0,0,0,Yes,Private,Rural,67.92,31.1,never smoked,,0.071903385,Routine risk review
+12786,Female,59.0,0,0,Yes,Private,Urban,83.62,34.2,Unknown,,0.1266069,Routine risk review
+11935,Female,9.0,0,0,No,children,Rural,110.97,17.7,Unknown,,0.0024417497,Routine risk review
+44655,Female,34.0,0,0,Yes,Private,Rural,70.53,39.2,never smoked,,0.01154567,Routine risk review
+48644,Female,47.0,0,0,Yes,Self-employed,Rural,115.91,22.2,formerly smoked,,0.05560341,Routine risk review
+41527,Male,46.0,0,0,Yes,Private,Urban,59.74,29.5,smokes,,0.06985031,Routine risk review
+50975,Male,49.0,0,0,Yes,Private,Rural,62.64,27.0,never smoked,,0.07307605,Routine risk review
+49179,Male,10.0,0,0,No,children,Rural,84.81,16.8,never smoked,,0.001961432,Routine risk review
+27509,Female,76.0,1,0,Yes,Self-employed,Urban,78.68,23.3,never smoked,,0.40202343,Routine risk review
+19191,Male,82.0,0,0,Yes,Private,Urban,217.57,33.5,formerly smoked,,0.48042354,Routine risk review
+25149,Female,3.0,0,0,No,children,Rural,79.76,15.6,Unknown,,0.0027673116,Routine risk review
+42626,Female,76.0,1,0,Yes,Govt_job,Rural,63.28,28.2,never smoked,,0.52197546,High risk review
+2578,Male,16.0,0,0,No,Govt_job,Rural,78.48,22.6,never smoked,,0.0047168736,Routine risk review
+55975,Female,44.0,0,0,Yes,Govt_job,Rural,70.48,20.2,never smoked,,0.018355137,Routine risk review
+62182,Female,17.0,0,0,No,Private,Rural,120.96,22.2,formerly smoked,,0.0071155042,Routine risk review
+12037,Female,73.0,0,0,Yes,Self-employed,Rural,77.29,22.6,never smoked,,0.16480234,Routine risk review
+21963,Male,31.0,0,0,Yes,Private,Urban,108.51,26.7,Unknown,,0.008438897,Routine risk review
+26250,Male,17.0,0,0,No,Self-employed,Urban,113.85,22.9,Unknown,,0.00494318,Routine risk review
+13960,Female,18.0,0,0,No,Never_worked,Urban,97.65,21.5,Unknown,,0.005076103,Routine risk review
+56573,Male,73.0,0,0,Yes,Private,Rural,121.83,30.3,formerly smoked,,0.3208188,Routine risk review
+10659,Female,8.0,0,0,No,children,Urban,81.53,14.8,Unknown,,0.002984443,Routine risk review
+50763,Male,42.0,0,0,Yes,Govt_job,Urban,58.35,24.3,never smoked,,0.013725044,Routine risk review
+62075,Female,40.0,0,0,Yes,Private,Urban,65.42,17.4,formerly smoked,,0.01073812,Routine risk review
+10119,Male,79.0,0,0,Yes,Private,Rural,69.34,29.0,never smoked,,0.28454715,Routine risk review
+48127,Male,53.0,0,0,Yes,Self-employed,Urban,109.09,26.3,smokes,,0.08753961,Routine risk review
+65892,Female,58.0,0,0,Yes,Self-employed,Urban,66.71,51.7,never smoked,,0.07853998,Routine risk review
+33370,Female,48.0,0,0,Yes,Private,Rural,114.92,29.2,Unknown,,0.07956921,Routine risk review
+59049,Female,17.0,0,0,No,Private,Rural,120.58,18.3,never smoked,,0.0024138188,Routine risk review
+53896,Female,23.0,0,0,No,Private,Rural,165.36,21.9,smokes,,0.0064631067,Routine risk review
+21980,Male,9.0,0,0,No,children,Urban,66.11,16.3,Unknown,,0.0028194578,Routine risk review
+70497,Female,81.0,1,1,Yes,Private,Rural,126.34,27.4,smokes,,0.5656688,High risk review
+58652,Female,16.0,0,0,No,Never_worked,Rural,68.27,20.4,never smoked,,0.0073902844,Routine risk review
+30335,Male,21.0,0,0,No,Private,Rural,92.86,23.2,never smoked,,0.0045771264,Routine risk review
+26305,Male,29.0,0,0,No,Self-employed,Rural,96.77,30.3,formerly smoked,,0.009425875,Routine risk review
+31227,Male,8.0,0,0,No,children,Rural,89.24,16.7,Unknown,,0.001928586,Routine risk review
+5581,Female,39.0,0,0,Yes,Private,Rural,89.32,31.0,formerly smoked,,0.0852152,Routine risk review
+1989,Male,37.0,0,0,Yes,Private,Rural,107.06,,smokes,,0.015424342,Routine risk review
+43803,Female,64.0,0,0,Yes,Private,Urban,65.63,33.5,smokes,,0.10939299,Routine risk review
+41395,Male,9.0,0,0,No,children,Urban,123.66,17.0,Unknown,,0.0020019875,Routine risk review
+71784,Male,17.0,0,0,No,Private,Rural,63.82,19.4,smokes,,0.0029702713,Routine risk review
+57979,Male,8.0,0,0,No,children,Rural,108.06,14.6,Unknown,,0.0019262148,Routine risk review
+54437,Male,62.0,0,0,Yes,Self-employed,Rural,136.18,32.2,Unknown,,0.17599942,Routine risk review
+67159,Male,73.0,1,0,No,Govt_job,Urban,71.29,37.7,never smoked,,0.3522999,Routine risk review
+7230,Male,48.0,0,0,Yes,Govt_job,Rural,76.58,27.4,never smoked,,0.08099291,Routine risk review
+68306,Male,17.0,0,0,No,Private,Rural,119.58,25.0,never smoked,,0.0039775046,Routine risk review
+33087,Female,10.0,0,0,No,children,Urban,109.3,20.1,Unknown,,0.0045357547,Routine risk review
+40850,Female,74.0,0,0,Yes,Govt_job,Urban,111.94,21.7,never smoked,,0.31394842,Routine risk review
+57612,Male,62.0,0,0,Yes,Private,Urban,81.64,38.2,never smoked,,0.10063788,Routine risk review
+37029,Male,5.0,0,0,No,children,Rural,97.64,17.0,Unknown,,0.0018746323,Routine risk review
+338,Female,43.0,0,0,Yes,Private,Rural,110.32,28.4,never smoked,,0.027048226,Routine risk review
+9565,Female,39.0,0,0,No,Private,Rural,79.0,30.0,never smoked,,0.053791013,Routine risk review
+3623,Female,37.0,0,0,Yes,Self-employed,Urban,95.08,34.1,never smoked,,0.009190224,Routine risk review
+69723,Male,15.0,0,0,No,Private,Urban,137.27,19.3,never smoked,,0.0022739344,Routine risk review
+47662,Female,36.0,0,0,No,Self-employed,Urban,57.83,21.6,smokes,,0.016687943,Routine risk review
+58495,Male,34.0,0,0,Yes,Private,Rural,84.08,32.9,never smoked,,0.0077222018,Routine risk review
+71222,Male,75.0,1,0,Yes,Private,Urban,234.51,27.2,formerly smoked,,0.59926933,High risk review
+37865,Male,53.0,0,0,Yes,Private,Urban,142.64,27.8,smokes,,0.1260365,Routine risk review
+20185,Female,61.0,0,0,Yes,Self-employed,Rural,69.77,29.9,never smoked,,0.107816584,Routine risk review
+41875,Female,45.0,0,0,Yes,Private,Urban,71.4,28.4,smokes,,0.1100652,Routine risk review
+67602,Female,17.0,0,0,No,Private,Urban,79.61,24.1,Unknown,,0.0068961824,Routine risk review
+40387,Female,17.0,0,0,No,Private,Rural,77.46,24.0,Unknown,,0.0074001206,Routine risk review
+43208,Female,19.0,0,0,No,Private,Urban,96.85,23.4,Unknown,,0.005928076,Routine risk review
+54324,Female,54.0,1,0,No,Govt_job,Urban,182.22,32.6,formerly smoked,,0.21792299,Routine risk review
+51110,Female,51.0,0,0,Yes,Self-employed,Urban,67.26,33.1,formerly smoked,,0.0813718,Routine risk review
+36969,Female,44.0,0,0,Yes,Private,Rural,60.02,33.8,formerly smoked,,0.036856744,Routine risk review
+48118,Female,82.0,0,0,Yes,Self-employed,Urban,113.45,30.3,never smoked,,0.29415563,Routine risk review
+4607,Female,49.0,0,0,Yes,Self-employed,Urban,112.31,36.9,Unknown,,0.08469854,Routine risk review
+62471,Female,34.0,0,0,Yes,Self-employed,Rural,68.53,29.7,never smoked,,0.018157829,Routine risk review
+43821,Female,63.0,1,0,Yes,Private,Rural,57.15,38.8,never smoked,,0.11334045,Routine risk review
+7218,Female,79.0,0,0,Yes,Private,Rural,214.73,30.9,never smoked,,0.46482122,Routine risk review
+23427,Female,81.0,0,0,Yes,Private,Rural,91.82,36.9,Unknown,,0.21932712,Routine risk review
+66014,Female,14.0,0,0,No,children,Urban,71.8,18.8,Unknown,,0.003910531,Routine risk review
+41652,Female,31.0,0,0,No,Private,Urban,63.41,25.5,formerly smoked,,0.009771955,Routine risk review
+16605,Male,57.0,0,0,Yes,Private,Urban,106.24,32.3,never smoked,,0.17895566,Routine risk review
+42091,Male,32.0,0,0,Yes,Govt_job,Rural,83.01,25.8,smokes,,0.009271762,Routine risk review
+66067,Male,66.0,0,0,Yes,Private,Rural,67.92,31.1,formerly smoked,,0.17742305,Routine risk review
+50222,Female,22.0,0,0,No,Private,Rural,74.99,27.9,smokes,,0.014235508,Routine risk review
+41214,Female,1.32,0,0,No,children,Rural,75.22,18.6,Unknown,,0.0135159455,Routine risk review
+72386,Female,20.0,0,0,No,Private,Urban,61.88,20.1,never smoked,,0.007946989,Routine risk review
+14918,Female,41.0,0,0,Yes,Private,Urban,65.67,26.7,smokes,,0.030082656,Routine risk review
+55457,Female,48.0,0,0,Yes,Private,Urban,110.18,30.3,smokes,,0.09228787,Routine risk review
+63323,Male,49.0,1,0,Yes,Self-employed,Rural,119.3,30.4,formerly smoked,,0.11630174,Routine risk review
+35446,Male,73.0,0,0,Yes,Govt_job,Rural,208.69,30.0,Unknown,,0.2772893,Routine risk review
+8208,Male,19.0,0,0,No,Private,Rural,95.18,24.9,smokes,,0.0046212506,Routine risk review
+5131,Female,51.0,0,0,Yes,Private,Urban,107.72,60.9,Unknown,,0.08935163,Routine risk review
+68157,Male,1.08,0,0,No,children,Rural,83.27,24.3,Unknown,,0.028237728,Routine risk review
+4795,Female,31.0,0,0,No,Private,Rural,90.29,38.7,Unknown,,0.0065145134,Routine risk review
+7581,Male,4.0,0,0,No,children,Urban,81.87,18.6,Unknown,,0.0021912334,Routine risk review
+47383,Male,1.8,0,0,No,children,Urban,153.31,17.1,Unknown,,0.0020546291,Routine risk review
+14036,Male,44.0,0,0,Yes,Private,Rural,101.46,29.4,Unknown,,0.017242301,Routine risk review
+25942,Female,4.0,0,0,No,children,Urban,72.49,16.9,Unknown,,0.0035780151,Routine risk review
+24018,Male,55.0,0,0,Yes,Private,Rural,86.58,34.2,never smoked,,0.0721999,Routine risk review
+27801,Female,34.0,0,0,Yes,Private,Urban,113.26,27.6,never smoked,,0.014114755,Routine risk review
+52978,Female,30.0,0,0,Yes,Private,Urban,84.92,47.8,never smoked,,0.0073654284,Routine risk review
+15593,Female,7.0,0,0,No,children,Urban,128.17,18.9,Unknown,,0.0026397025,Routine risk review
+11098,Male,75.0,0,0,Yes,Govt_job,Rural,93.93,24.4,formerly smoked,,0.22541155,Routine risk review
+12015,Male,14.0,0,0,No,children,Urban,99.87,25.2,Unknown,,0.005330218,Routine risk review
+47348,Female,61.0,0,0,Yes,Private,Urban,129.31,30.7,formerly smoked,,0.25202996,Routine risk review
+44155,Female,55.0,0,0,Yes,Govt_job,Urban,89.43,26.1,formerly smoked,,0.078299776,Routine risk review
+62656,Female,14.0,0,0,No,children,Rural,101.6,25.3,never smoked,,0.0070482004,Routine risk review
+8838,Female,36.0,0,0,No,Private,Rural,66.55,32.8,smokes,,0.0126400255,Routine risk review
+42563,Female,57.0,1,1,Yes,Private,Rural,231.72,45.7,formerly smoked,,0.48304033,Routine risk review
+31254,Female,20.0,0,0,No,Private,Urban,96.69,24.6,Unknown,,0.0054629394,Routine risk review
+27922,Male,32.0,0,0,Yes,Private,Rural,102.13,32.3,never smoked,,0.008170842,Routine risk review
+1696,Female,43.0,0,0,Yes,Private,Urban,100.88,47.6,smokes,,0.01927876,Routine risk review
+54162,Male,43.0,0,0,Yes,Private,Rural,66.22,34.4,Unknown,,0.013405879,Routine risk review
+70396,Female,1.08,0,0,No,children,Urban,109.33,18.2,Unknown,,0.011203485,Routine risk review
+65907,Female,49.0,0,0,Yes,Private,Urban,206.53,44.5,smokes,,0.12814286,Routine risk review
+49451,Female,53.0,0,0,Yes,Private,Rural,83.91,36.6,Unknown,,0.076989,Routine risk review
+68601,Female,18.0,0,0,No,Private,Urban,67.92,19.4,never smoked,,0.0034827522,Routine risk review
+13236,Female,13.0,0,0,No,children,Rural,73.48,22.9,Unknown,,0.009981775,Routine risk review
+65998,Male,5.0,0,0,No,children,Rural,101.31,20.0,Unknown,,0.0019095406,Routine risk review
+5875,Female,37.0,0,0,Yes,Private,Urban,103.66,36.1,smokes,,0.01117744,Routine risk review
+47427,Male,49.0,0,0,Yes,Self-employed,Urban,70.73,27.3,formerly smoked,,0.11207659,Routine risk review
+29734,Female,45.0,0,0,No,Govt_job,Rural,77.45,42.2,formerly smoked,,0.05858453,Routine risk review
+72715,Female,50.0,0,1,Yes,Private,Urban,193.8,26.4,never smoked,,0.1920316,Routine risk review
+59847,Female,12.0,0,0,No,children,Rural,114.34,23.6,never smoked,,0.006561753,Routine risk review
+59911,Male,12.0,0,0,No,children,Urban,69.25,18.6,Unknown,,0.0029642265,Routine risk review
+13583,Female,5.0,0,0,No,children,Rural,88.44,18.0,Unknown,,0.002444754,Routine risk review
+22897,Male,39.0,0,0,Yes,Private,Rural,84.09,31.1,formerly smoked,,0.054333635,Routine risk review
+11898,Female,41.0,0,0,Yes,Private,Urban,87.06,30.0,never smoked,,0.025857648,Routine risk review
+14785,Female,41.0,0,0,Yes,Private,Rural,92.64,43.8,never smoked,,0.015361122,Routine risk review
+45163,Female,47.0,0,0,Yes,Private,Urban,99.36,23.8,smokes,,0.048529558,Routine risk review
+57254,Female,57.0,0,0,Yes,Private,Rural,135.63,36.2,formerly smoked,,0.25699115,Routine risk review
+30658,Male,16.0,0,0,No,children,Rural,82.44,32.6,Unknown,,0.009685755,Routine risk review
+32617,Male,3.0,0,0,No,children,Urban,81.88,18.0,Unknown,,0.0021912334,Routine risk review
+65376,Female,65.0,0,0,Yes,Self-employed,Urban,95.44,25.5,smokes,,0.10091252,Routine risk review
+1731,Female,80.0,0,0,No,Self-employed,Urban,72.71,29.9,never smoked,,0.3352035,Routine risk review
+38441,Female,58.0,0,0,Yes,Private,Urban,65.45,32.1,never smoked,,0.10416393,Routine risk review
+22147,Female,74.0,0,0,Yes,Private,Urban,203.01,25.4,never smoked,,0.33233342,Routine risk review
+50663,Female,62.0,0,0,Yes,Govt_job,Urban,110.84,23.4,smokes,,0.15901363,Routine risk review
+19165,Male,33.0,0,0,Yes,Private,Urban,83.12,23.4,Unknown,,0.00867344,Routine risk review
+60562,Female,21.0,0,0,No,Private,Rural,55.12,21.8,never smoked,,0.011386664,Routine risk review
+22013,Female,17.0,0,0,No,Private,Rural,105.91,30.8,never smoked,,0.009408922,Routine risk review
+39936,Female,49.0,0,0,Yes,Private,Rural,61.57,37.9,formerly smoked,,0.11641544,Routine risk review
+6517,Female,24.0,0,0,Yes,Govt_job,Urban,83.1,42.5,smokes,,0.009143622,Routine risk review
+62576,Female,56.0,0,0,Yes,Private,Urban,66.32,23.4,never smoked,,0.07492923,Routine risk review
+18636,Female,26.0,0,0,Yes,Govt_job,Urban,72.56,35.4,never smoked,,0.008849379,Routine risk review
+24299,Male,54.0,1,0,Yes,Self-employed,Rural,97.99,32.3,smokes,,0.10650169,Routine risk review
+40826,Female,42.0,0,0,No,Private,Urban,63.27,27.0,never smoked,,0.02800035,Routine risk review
+53323,Female,34.0,0,0,No,Govt_job,Urban,79.6,46.3,never smoked,,0.009818575,Routine risk review
+28717,Female,56.0,1,0,Yes,Private,Rural,177.56,30.1,never smoked,,0.2702835,Routine risk review
+53028,Female,39.0,0,0,Yes,Private,Rural,81.31,34.7,never smoked,,0.039215744,Routine risk review
+57757,Female,77.0,0,0,Yes,Self-employed,Rural,59.91,18.3,never smoked,,0.10153642,Routine risk review
+54795,Female,12.0,0,0,No,children,Rural,132.85,16.2,never smoked,,0.0025439528,Routine risk review
+70267,Male,65.0,0,0,Yes,Private,Rural,198.84,33.2,formerly smoked,,0.29950422,Routine risk review
+34084,Male,7.0,0,0,No,children,Urban,77.12,18.6,Unknown,,0.0023011072,Routine risk review
+20258,Male,25.0,0,0,No,Private,Urban,87.17,25.1,never smoked,,0.0042290385,Routine risk review
+65333,Female,31.0,0,0,Yes,Private,Rural,96.03,24.1,Unknown,,0.0066834833,Routine risk review
+56629,Female,14.0,0,0,No,Private,Rural,83.56,33.1,Unknown,,0.008673107,Routine risk review
+22417,Female,5.0,0,0,No,children,Rural,80.93,24.8,Unknown,,0.007625907,Routine risk review
+49925,Female,60.0,0,0,Yes,Private,Rural,84.54,23.4,smokes,,0.11583823,Routine risk review
+72696,Female,53.0,0,0,Yes,Private,Urban,70.51,54.1,never smoked,,0.068810396,Routine risk review
+39708,Male,55.0,0,0,Yes,Private,Rural,56.87,28.9,formerly smoked,,0.081907615,Routine risk review
+60426,Female,69.0,0,0,Yes,Self-employed,Urban,67.55,38.1,Unknown,,0.14014892,Routine risk review
+70540,Female,39.0,0,0,Yes,Private,Urban,243.52,37.2,smokes,,0.066349715,Routine risk review
+37622,Female,0.32,0,0,No,children,Urban,108.63,19.6,Unknown,,0.011574264,Routine risk review
+44813,Female,34.0,0,0,No,Private,Rural,69.06,29.0,smokes,,0.017375665,Routine risk review
+47153,Female,80.0,0,0,Yes,Private,Urban,73.89,26.7,formerly smoked,,0.4483835,Routine risk review
+8175,Male,20.0,0,0,No,Private,Urban,84.49,20.5,never smoked,,0.006252031,Routine risk review
+61528,Female,45.0,0,0,Yes,Govt_job,Urban,73.71,34.1,never smoked,,0.0531507,Routine risk review
+38771,Female,41.0,0,0,No,Govt_job,Urban,129.01,42.4,Unknown,,0.015163185,Routine risk review
+31189,Male,54.0,0,0,Yes,Govt_job,Urban,72.96,37.7,smokes,,0.06916191,Routine risk review
+27804,Male,23.0,0,0,No,Private,Rural,110.23,39.1,Unknown,,0.005528688,Routine risk review
+41842,Male,75.0,0,0,Yes,Govt_job,Rural,79.49,28.9,Unknown,,0.18936312,Routine risk review
+11962,Male,36.0,0,0,Yes,Private,Urban,89.33,30.7,never smoked,,0.01033077,Routine risk review
+45404,Female,75.0,0,0,Yes,Private,Rural,68.38,33.8,Unknown,,0.22290072,Routine risk review
+4062,Male,72.0,0,1,Yes,Private,Rural,238.27,,smokes,,0.51009405,High risk review
+63650,Female,47.0,0,0,Yes,Govt_job,Urban,135.79,32.1,formerly smoked,,0.072484046,Routine risk review
+72186,Female,15.0,0,0,No,Private,Rural,82.19,40.5,never smoked,,0.00789678,Routine risk review
+40240,Male,40.0,1,0,Yes,Self-employed,Urban,93.2,24.8,smokes,,0.014965976,Routine risk review
+25931,Female,71.0,0,0,Yes,Self-employed,Urban,208.31,31.8,formerly smoked,,0.26584652,Routine risk review
+21292,Male,38.0,0,0,Yes,Private,Rural,111.33,27.0,never smoked,,0.027935075,Routine risk review
+25391,Female,10.0,0,0,No,children,Rural,69.84,13.7,Unknown,,0.0037682983,Routine risk review
+65469,Male,11.0,0,0,No,children,Rural,121.71,23.4,never smoked,,0.005122774,Routine risk review
+29487,Male,0.72,0,0,No,children,Urban,80.08,16.4,Unknown,,0.00858495,Routine risk review
+63575,Male,9.0,0,0,No,children,Urban,84.4,14.9,Unknown,,0.0020182598,Routine risk review
+30457,Female,53.0,1,0,Yes,Govt_job,Rural,98.61,38.8,smokes,,0.120586656,Routine risk review
+5951,Male,28.0,1,0,No,Private,Urban,86.61,38.6,smokes,,0.008332653,Routine risk review
+8690,Female,81.0,0,0,Yes,Private,Urban,80.44,32.2,never smoked,,0.27494797,Routine risk review
+32147,Male,1.32,0,0,No,children,Rural,107.02,,Unknown,,0.0675106,Routine risk review
+47691,Male,16.0,0,0,No,Private,Rural,97.23,30.6,never smoked,,0.006828426,Routine risk review
+25982,Male,24.0,0,0,No,Private,Rural,91.21,28.1,formerly smoked,,0.0117195835,Routine risk review
+70058,Female,62.0,1,0,Yes,Self-employed,Urban,103.69,35.2,smokes,,0.15470995,Routine risk review
+61868,Female,62.0,0,0,Yes,Private,Urban,74.12,21.8,formerly smoked,,0.15576762,Routine risk review
+46086,Female,59.0,0,0,Yes,Private,Urban,71.08,28.1,never smoked,,0.25935382,Routine risk review
+68596,Female,19.0,0,0,No,Private,Urban,58.39,28.2,never smoked,,0.020671982,Routine risk review
+10281,Female,51.0,1,0,Yes,Self-employed,Rural,176.34,28.4,never smoked,,0.31004277,Routine risk review
+31409,Male,38.0,0,0,Yes,Private,Rural,73.76,37.4,never smoked,,0.02936651,Routine risk review
+54067,Female,26.0,0,0,No,Private,Rural,67.21,21.8,formerly smoked,,0.008709548,Routine risk review
+9731,Male,13.0,0,0,No,children,Urban,87.98,19.8,Unknown,,0.0021713357,Routine risk review
+24009,Male,4.0,0,0,No,children,Urban,94.23,16.2,Unknown,,0.0019707782,Routine risk review
+61694,Male,55.0,0,0,Yes,Self-employed,Rural,111.36,33.6,never smoked,,0.0817733,Routine risk review
+7453,Female,44.0,0,0,Yes,Private,Urban,84.07,21.2,smokes,,0.013525283,Routine risk review
+66405,Female,31.0,0,0,Yes,Private,Urban,117.31,28.4,never smoked,,0.012244223,Routine risk review
+2138,Male,58.0,0,0,Yes,Govt_job,Urban,84.94,,never smoked,,0.21339443,Routine risk review
+66650,Female,17.0,0,0,No,Private,Urban,68.86,41.1,never smoked,,0.008264259,Routine risk review
+59945,Female,23.0,0,0,No,Private,Urban,132.88,24.9,never smoked,,0.005358178,Routine risk review
+16245,Male,51.0,1,0,Yes,Self-employed,Rural,211.83,56.6,never smoked,,0.14016768,Routine risk review
+68094,Female,46.0,0,0,Yes,Private,Rural,124.92,28.8,Unknown,,0.074705034,Routine risk review
+64661,Female,81.0,0,0,No,Self-employed,Urban,57.42,33.7,never smoked,,0.19585685,Routine risk review
+61376,Male,38.0,0,0,Yes,Private,Urban,215.69,38.6,formerly smoked,,0.04677788,Routine risk review
+47236,Female,50.0,0,0,Yes,Private,Urban,154.67,33.8,never smoked,,0.097865865,Routine risk review
+875,Female,34.0,0,0,No,Private,Urban,67.66,22.4,never smoked,,0.009919358,Routine risk review
+63986,Male,60.0,0,0,Yes,Private,Rural,153.48,37.3,never smoked,,0.2007919,Routine risk review
+55410,Female,50.0,0,0,Yes,Self-employed,Urban,62.63,23.4,never smoked,,0.063017376,Routine risk review
+63287,Female,49.0,0,0,Yes,Private,Urban,77.93,39.1,smokes,,0.07679514,Routine risk review
+3720,Female,2.0,0,0,No,children,Rural,80.3,21.2,Unknown,,0.005693528,Routine risk review
+20274,Male,47.0,0,0,Yes,Private,Urban,106.69,31.2,Unknown,,0.058909465,Routine risk review
+50338,Female,34.0,0,0,Yes,Private,Urban,83.07,28.0,formerly smoked,,0.028616022,Routine risk review
+58209,Female,22.0,0,0,No,Private,Urban,140.14,21.1,never smoked,,0.0046805074,Routine risk review
+20634,Female,11.0,0,0,No,children,Urban,92.65,15.7,never smoked,,0.0027993943,Routine risk review
+3251,Male,54.0,0,0,Yes,Private,Urban,111.37,29.1,formerly smoked,,0.14137527,Routine risk review
+12677,Female,60.0,0,0,Yes,Private,Rural,99.0,26.1,never smoked,,0.09191423,Routine risk review
+45160,Male,3.0,0,0,No,children,Rural,78.24,16.2,Unknown,,0.0022370492,Routine risk review
+67940,Female,46.0,0,0,Yes,Govt_job,Rural,83.88,27.1,never smoked,,0.06263858,Routine risk review
+8145,Male,30.0,0,0,No,Private,Urban,86.21,28.8,smokes,,0.007372512,Routine risk review
+39393,Female,63.0,0,0,Yes,Private,Urban,57.06,37.9,never smoked,,0.066794805,Routine risk review
+57710,Female,50.0,0,0,Yes,Private,Rural,112.25,21.6,Unknown,,0.06270312,Routine risk review
+12487,Male,65.0,0,0,Yes,Private,Urban,81.06,30.1,smokes,,0.13713266,Routine risk review
+16513,Male,78.0,0,0,Yes,Private,Urban,104.37,29.7,never smoked,,0.44285148,Routine risk review
+42297,Female,36.0,0,0,Yes,Private,Urban,124.31,26.4,Unknown,,0.017276082,Routine risk review
+63656,Female,18.0,0,0,No,Private,Urban,101.95,46.0,formerly smoked,,0.009550951,Routine risk review
+56233,Female,44.0,0,0,No,Private,Rural,116.95,26.1,never smoked,,0.012781918,Routine risk review
+22591,Female,4.0,0,0,No,children,Urban,99.76,23.2,Unknown,,0.0068309614,Routine risk review
+23757,Female,60.0,0,0,No,Private,Urban,105.48,28.4,Unknown,,0.2964156,Routine risk review
+19601,Female,19.0,0,0,No,Private,Urban,100.6,20.5,never smoked,,0.0071835616,Routine risk review
+61801,Male,15.0,0,0,No,Private,Urban,65.05,24.6,Unknown,,0.0052913562,Routine risk review
+949,Male,20.0,0,0,No,Private,Rural,75.9,32.2,never smoked,,0.0062393695,Routine risk review
+10995,Male,76.0,1,0,Yes,Private,Rural,267.6,30.5,never smoked,,0.6468518,High risk review
+1503,Male,31.0,0,0,No,Private,Urban,215.07,,smokes,,0.012731863,Routine risk review
+37431,Female,39.0,0,0,Yes,Govt_job,Urban,109.03,24.9,Unknown,,0.030893192,Routine risk review
+53697,Male,58.0,0,1,Yes,Private,Rural,225.35,26.5,smokes,,0.30471215,Routine risk review
+67012,Male,64.0,1,0,Yes,Private,Rural,196.26,34.5,Unknown,,0.27607524,Routine risk review
+30525,Female,79.0,0,0,Yes,Govt_job,Urban,95.42,21.5,formerly smoked,,0.28015307,Routine risk review
+25860,Female,11.0,0,0,No,children,Rural,123.04,15.9,Unknown,,0.0024639177,Routine risk review
+21743,Male,4.0,0,0,No,children,Urban,85.88,17.7,Unknown,,0.0020182598,Routine risk review
+25833,Female,43.0,0,0,Yes,Private,Rural,107.43,26.5,never smoked,,0.022852931,Routine risk review
+64652,Female,44.0,0,0,Yes,Private,Rural,56.85,24.4,never smoked,,0.020475069,Routine risk review
+45710,Female,37.0,0,0,Yes,Govt_job,Rural,102.15,26.6,Unknown,,0.013905786,Routine risk review
+27853,Female,34.0,0,0,Yes,Self-employed,Rural,88.68,23.9,never smoked,,0.009293197,Routine risk review
+5964,Female,59.0,0,0,Yes,Private,Urban,182.52,30.1,Unknown,,0.28482318,Routine risk review
+6976,Female,40.0,0,0,Yes,Private,Urban,93.97,23.6,never smoked,,0.016101198,Routine risk review
+11145,Female,8.0,0,0,No,children,Urban,104.03,18.4,Unknown,,0.0027178673,Routine risk review
+39229,Female,24.0,0,0,Yes,Private,Rural,67.99,32.1,never smoked,,0.010008051,Routine risk review
+14189,Male,18.0,0,0,No,Private,Rural,83.37,24.4,Unknown,,0.0052920687,Routine risk review
+49929,Male,20.0,0,0,No,Private,Rural,124.66,27.3,never smoked,,0.006927059,Routine risk review
+56328,Female,70.0,0,0,Yes,Private,Rural,212.87,34.8,never smoked,,0.27977523,Routine risk review
+26742,Female,68.0,0,0,Yes,Govt_job,Urban,96.75,28.4,formerly smoked,,0.3009941,Routine risk review
+63158,Male,17.0,0,0,No,Private,Urban,63.28,40.2,Unknown,,0.0065647596,Routine risk review
+27435,Female,17.0,0,0,No,Private,Urban,82.64,31.1,Unknown,,0.01166848,Routine risk review
+10829,Female,21.0,0,0,No,Private,Rural,71.34,24.0,never smoked,,0.0076686786,Routine risk review
+70593,Female,38.0,0,0,Yes,Private,Rural,183.43,38.1,formerly smoked,,0.076956145,Routine risk review
+42647,Female,59.0,0,0,Yes,Govt_job,Urban,101.19,29.9,formerly smoked,,0.18418299,Routine risk review
+48109,Female,79.0,0,1,Yes,Private,Rural,88.51,24.5,never smoked,,0.28101036,Routine risk review
+40732,Female,50.0,0,0,Yes,Self-employed,Rural,126.85,49.5,formerly smoked,,0.103107676,Routine risk review
+58635,Female,72.0,0,0,Yes,Self-employed,Urban,74.17,35.5,formerly smoked,,0.16688088,Routine risk review
+844,Female,54.0,0,0,Yes,Private,Urban,76.04,29.5,smokes,,0.124909855,Routine risk review
+14688,Female,44.0,0,0,Yes,Private,Urban,73.87,28.8,smokes,,0.030321488,Routine risk review
+23026,Female,48.0,0,0,Yes,Private,Rural,99.07,22.1,never smoked,,0.04191459,Routine risk review
+30463,Male,29.0,0,0,No,Private,Urban,82.93,29.4,formerly smoked,,0.011074861,Routine risk review
+50140,Female,44.0,0,0,Yes,Govt_job,Rural,133.24,45.0,smokes,,0.017296376,Routine risk review
+36837,Female,61.0,0,0,Yes,Self-employed,Urban,69.88,27.1,never smoked,,0.15019658,Routine risk review
+57333,Female,58.0,0,0,Yes,Govt_job,Rural,69.12,28.3,Unknown,,0.22820207,Routine risk review
+19826,Female,81.0,0,0,Yes,Self-employed,Rural,86.05,20.1,formerly smoked,,0.18821639,Routine risk review
+37713,Male,29.0,0,0,Yes,Private,Urban,185.27,31.3,never smoked,,0.009284837,Routine risk review
+6278,Male,5.0,0,0,No,children,Urban,97.46,17.6,Unknown,,0.0019308425,Routine risk review
+15517,Female,35.0,0,0,Yes,Private,Urban,81.9,24.5,never smoked,,0.008578097,Routine risk review
+25326,Female,40.0,0,0,No,Private,Rural,99.58,24.1,Unknown,,0.012615461,Routine risk review
+57034,Female,37.0,0,0,No,Private,Rural,124.54,31.3,never smoked,,0.010095217,Routine risk review
+70718,Male,33.0,0,0,Yes,Private,Rural,153.34,31.5,never smoked,,0.0087098405,Routine risk review
+47461,Female,35.0,0,0,Yes,Private,Urban,112.35,29.9,Unknown,,0.016651597,Routine risk review
+50091,Female,38.0,0,0,No,Govt_job,Urban,160.76,30.2,smokes,,0.04539575,Routine risk review
+62416,Female,26.0,0,0,Yes,Private,Rural,73.29,27.8,never smoked,,0.013962864,Routine risk review
+5288,Male,10.0,0,0,No,children,Urban,108.08,15.6,Unknown,,0.0019839676,Routine risk review
+66951,Female,72.0,0,0,Yes,Private,Urban,206.49,26.3,never smoked,,0.34692165,Routine risk review
+28335,Male,21.0,0,0,Yes,Private,Rural,77.42,24.8,never smoked,,0.005858994,Routine risk review
+67465,Female,20.0,0,0,No,Private,Rural,117.59,17.1,never smoked,,0.0024798692,Routine risk review
+67426,Female,1.24,0,0,No,children,Rural,61.94,20.3,Unknown,,0.04742608,Routine risk review
+19508,Female,26.0,0,0,No,Private,Urban,116.68,18.7,formerly smoked,,0.0033924503,Routine risk review
+65405,Female,79.0,0,0,No,Private,Urban,253.86,28.8,formerly smoked,,0.5612307,High risk review
+49773,Female,78.0,0,0,Yes,Private,Urban,203.36,28.7,formerly smoked,,0.48570436,Routine risk review
+57159,Male,56.0,0,0,Yes,Self-employed,Rural,125.87,24.6,never smoked,,0.0626953,Routine risk review
+69710,Female,46.0,0,0,No,Self-employed,Rural,64.09,25.3,never smoked,,0.039337233,Routine risk review
+58834,Male,55.0,0,0,Yes,Govt_job,Urban,65.33,29.7,Unknown,,0.08321797,Routine risk review
+42007,Male,41.0,0,0,No,Private,Rural,70.15,,formerly smoked,,0.034171548,Routine risk review
+5121,Male,30.0,0,0,Yes,Private,Urban,96.84,21.1,Unknown,,0.0043331785,Routine risk review
+44878,Male,53.0,0,0,Yes,Private,Rural,175.92,26.9,smokes,,0.114295565,Routine risk review
+40220,Male,32.0,0,0,No,Private,Rural,100.65,26.2,formerly smoked,,0.0084018465,Routine risk review
+19692,Male,38.0,0,0,No,Private,Rural,112.39,26.3,Unknown,,0.028225152,Routine risk review
+27616,Male,33.0,0,0,Yes,Govt_job,Rural,81.1,24.8,never smoked,,0.0060822135,Routine risk review
+19801,Female,44.0,0,0,Yes,Private,Rural,98.3,25.0,never smoked,,0.013761762,Routine risk review
+21467,Male,44.0,0,0,Yes,Private,Urban,89.68,34.6,Unknown,,0.0129215615,Routine risk review
+25102,Female,51.0,0,0,Yes,Govt_job,Urban,95.16,42.7,formerly smoked,,0.074839376,Routine risk review
+28788,Male,40.0,0,0,Yes,Private,Urban,191.15,,smokes,,0.033335112,Routine risk review
+29028,Female,41.0,0,0,Yes,Private,Rural,91.04,24.5,never smoked,,0.014339813,Routine risk review
+15581,Male,5.0,0,0,No,children,Urban,101.87,19.3,Unknown,,0.0020314471,Routine risk review
+16738,Female,42.0,0,0,Yes,Private,Rural,96.86,29.3,never smoked,,0.02083946,Routine risk review
+31836,Female,6.0,0,0,No,children,Urban,91.05,22.1,Unknown,,0.006220629,Routine risk review
+43496,Female,46.0,0,0,Yes,Govt_job,Urban,55.84,27.8,never smoked,,0.07338776,Routine risk review
+52677,Female,47.0,0,0,Yes,Private,Urban,84.04,24.7,never smoked,,0.03992665,Routine risk review
+11630,Female,25.0,0,0,No,Private,Urban,92.06,25.3,smokes,,0.0063793045,Routine risk review
+53478,Female,40.0,0,0,Yes,Private,Urban,89.61,41.2,formerly smoked,,0.023809725,Routine risk review
+38349,Female,49.0,0,0,Yes,Govt_job,Urban,69.92,47.6,never smoked,,0.06463339,Routine risk review
+48425,Male,21.0,0,0,No,Private,Rural,89.29,23.4,never smoked,,0.0045771264,Routine risk review
+64420,Female,61.0,0,0,Yes,Govt_job,Rural,120.23,22.7,Unknown,,0.16795373,Routine risk review
+60271,Male,78.0,0,0,Yes,Private,Urban,60.22,29.7,formerly smoked,,0.3435162,Routine risk review
+38009,Male,41.0,0,0,Yes,Private,Urban,223.78,32.3,never smoked,,0.020955846,Routine risk review
+11184,Female,82.0,0,0,Yes,Self-employed,Rural,211.58,36.9,never smoked,,0.27640843,Routine risk review
+68967,Male,39.0,0,0,Yes,Private,Urban,179.38,27.7,Unknown,,0.045130618,Routine risk review
+66684,Male,70.0,0,0,Yes,Self-employed,Rural,193.88,24.3,Unknown,,0.18315262,Routine risk review
+7789,Female,31.0,0,0,Yes,Private,Urban,89.01,37.4,never smoked,,0.007868982,Routine risk review
+40112,Female,37.0,0,0,No,Private,Urban,118.41,25.1,never smoked,,0.006696745,Routine risk review
+65814,Male,21.0,0,0,No,Private,Urban,138.51,24.3,never smoked,,0.003989776,Routine risk review
+49598,Male,80.0,0,0,Yes,Self-employed,Urban,120.03,24.3,formerly smoked,,0.3500472,Routine risk review
+15599,Female,21.0,0,0,No,Private,Urban,91.01,28.7,never smoked,,0.008403818,Routine risk review
+62425,Female,5.0,0,0,No,children,Urban,61.98,16.8,Unknown,,0.004721568,Routine risk review
+52652,Male,81.0,0,0,Yes,Private,Rural,135.32,35.8,Unknown,,0.33319885,Routine risk review
+71957,Female,35.0,0,0,Yes,Private,Rural,58.72,40.0,smokes,,0.016985318,Routine risk review
+17231,Female,24.0,0,0,No,Private,Urban,90.42,24.3,never smoked,,0.005584883,Routine risk review
+30379,Female,52.0,0,0,Yes,Govt_job,Urban,104.0,25.6,smokes,,0.06617282,Routine risk review
+63997,Male,70.0,0,0,Yes,Private,Urban,102.5,37.8,Unknown,,0.22473404,Routine risk review
+39935,Female,34.0,0,0,Yes,Private,Rural,174.37,23.0,never smoked,,0.009413764,Routine risk review
+8203,Male,17.0,0,0,No,Private,Rural,106.56,21.0,Unknown,,0.0036917601,Routine risk review
+27446,Female,8.0,0,0,No,children,Urban,76.31,15.5,Unknown,,0.0035974276,Routine risk review
+42709,Male,1.72,0,0,No,children,Urban,77.28,17.1,Unknown,,0.0023769983,Routine risk review
+22691,Female,29.0,0,0,Yes,Self-employed,Urban,90.52,28.0,never smoked,,0.01233875,Routine risk review
+37680,Male,55.0,0,0,Yes,Govt_job,Rural,108.35,40.8,formerly smoked,,0.09597101,Routine risk review
+24552,Female,44.0,0,0,Yes,Private,Rural,72.03,37.5,smokes,,0.023812212,Routine risk review
+72914,Female,19.0,0,0,No,Private,Urban,90.57,24.2,Unknown,,0.0060416632,Routine risk review
+29540,Male,67.0,0,0,Yes,Private,Rural,97.04,26.9,smokes,,0.17318015,Routine risk review
+53525,Female,72.0,0,0,Yes,Private,Urban,83.89,33.1,formerly smoked,,0.17906412,Routine risk review
+65411,Female,51.0,0,0,Yes,Private,Urban,152.56,21.8,Unknown,,0.06651966,Routine risk review
+26214,Female,63.0,0,0,Yes,Self-employed,Rural,75.93,34.7,formerly smoked,,0.13635495,Routine risk review
+22190,Female,64.0,1,0,Yes,Self-employed,Urban,76.89,30.2,Unknown,,0.19756782,Routine risk review
+56714,Female,0.72,0,0,No,children,Rural,62.13,16.8,Unknown,,0.017805457,Routine risk review
+4211,Male,26.0,0,0,No,Govt_job,Rural,100.85,21.0,smokes,,0.0033895962,Routine risk review
+6369,Male,59.0,1,0,Yes,Private,Rural,95.05,30.9,never smoked,,0.14663938,Routine risk review
+56799,Male,76.0,0,0,Yes,Govt_job,Urban,82.35,38.9,never smoked,,0.12079403,Routine risk review
+32235,Female,45.0,1,0,Yes,Govt_job,Rural,95.02,,smokes,,0.13709556,Routine risk review
+28048,Male,13.0,0,0,No,children,Urban,82.38,24.3,Unknown,,0.0070579443,Routine risk review
+68598,Male,1.08,0,0,No,children,Rural,79.15,17.4,Unknown,,0.00836077,Routine risk review
+41512,Male,57.0,0,0,Yes,Govt_job,Rural,76.62,28.2,never smoked,,0.2740104,Routine risk review
+64520,Male,68.0,0,0,Yes,Self-employed,Urban,91.68,40.8,Unknown,,0.13303313,Routine risk review
+579,Male,9.0,0,0,No,children,Urban,71.88,17.5,Unknown,,0.0025469337,Routine risk review
+7293,Male,40.0,0,0,Yes,Private,Rural,83.94,,smokes,,0.022655997,Routine risk review
+68398,Male,82.0,1,0,Yes,Self-employed,Rural,71.97,28.3,never smoked,,0.47914466,Routine risk review
+36901,Female,45.0,0,0,Yes,Private,Urban,97.95,24.5,Unknown,,0.038619634,Routine risk review
+45010,Female,57.0,0,0,Yes,Private,Rural,77.93,21.7,never smoked,,0.10962409,Routine risk review
+22127,Female,18.0,0,0,No,Private,Urban,82.85,46.9,Unknown,,0.009167482,Routine risk review
+14180,Female,13.0,0,0,No,children,Rural,103.08,18.6,Unknown,,0.0027327777,Routine risk review
+18234,Female,80.0,1,0,Yes,Private,Urban,83.75,,never smoked,,0.5161104,High risk review
+44873,Female,81.0,0,0,Yes,Self-employed,Urban,125.2,40.0,never smoked,,0.2401133,Routine risk review
+19723,Female,35.0,0,0,Yes,Self-employed,Rural,82.99,30.6,never smoked,,0.017901402,Routine risk review
+37544,Male,51.0,0,0,Yes,Private,Rural,166.29,25.6,formerly smoked,,0.077954344,Routine risk review
+44679,Female,44.0,0,0,Yes,Govt_job,Urban,85.28,26.2,Unknown,,0.019093605,Routine risk review
+29552,Female,55.0,1,1,Yes,Private,Urban,210.4,40.0,smokes,,0.28210047,Routine risk review
+25904,Female,76.0,1,1,Yes,Self-employed,Urban,199.86,,smokes,,0.5476022,High risk review
+31421,Male,73.0,0,1,Yes,Govt_job,Rural,219.73,28.6,never smoked,,0.2698153,Routine risk review
+20463,Male,81.0,1,1,Yes,Private,Urban,250.89,28.1,smokes,,0.78483456,High risk review
+68023,Male,79.0,0,0,Yes,Private,Rural,72.73,28.4,never smoked,,0.4167784,Routine risk review
+12689,Female,63.0,0,0,Yes,Govt_job,Rural,205.35,42.2,formerly smoked,,0.23829393,Routine risk review
+54724,Female,81.0,0,0,No,Govt_job,Urban,70.3,25.8,smokes,,0.29454044,Routine risk review
+8899,Male,49.0,0,0,No,Private,Rural,104.86,31.9,smokes,,0.05776043,Routine risk review
+39186,Female,57.0,0,1,Yes,Private,Urban,216.58,31.0,Unknown,,0.34925395,Routine risk review
+32729,Female,81.0,0,0,Yes,Private,Rural,184.4,27.5,never smoked,,0.58021045,High risk review
+39105,Male,74.0,0,0,Yes,Self-employed,Rural,60.98,,never smoked,,0.3477223,Routine risk review
+31154,Female,39.0,0,0,Yes,Self-employed,Urban,97.76,29.6,smokes,,0.043250598,Routine risk review
+69959,Female,80.0,1,0,No,Private,Urban,66.03,35.4,never smoked,,0.3857489,Routine risk review
+10552,Female,81.0,0,0,Yes,Self-employed,Rural,81.95,16.9,never smoked,,0.09593435,Routine risk review
+12917,Female,79.0,0,0,Yes,Private,Urban,97.73,21.5,smokes,,0.2960998,Routine risk review
+68356,Female,73.0,0,0,Yes,Self-employed,Urban,70.94,34.4,never smoked,,0.13086541,Routine risk review
+23368,Female,77.0,1,0,Yes,Self-employed,Urban,199.84,28.0,formerly smoked,,0.5866096,High risk review

@@ -1,0 +1,12 @@
+column,method,value,threshold,drifted
+hypertension,Z-test p_value,0.022673,0.05,True
+Residence_type,Z-test p_value,0.436041,0.05,False
+age,K-S p_value,0.87459,0.05,False
+avg_glucose_level,K-S p_value,0.895823,0.05,False
+bmi,K-S p_value,0.950995,0.05,False
+ever_married,Z-test p_value,0.457896,0.05,False
+gender,Z-test p_value,0.390599,0.05,False
+heart_disease,Z-test p_value,0.337198,0.05,False
+predicted_risk,K-S p_value,0.827725,0.05,False
+smoking_status,chi-square p_value,0.631533,0.05,False
+work_type,chi-square p_value,0.65743,0.05,False

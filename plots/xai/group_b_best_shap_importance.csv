@@ -1,0 +1,22 @@
+feature,mean_abs_shap
+numeric__age,0.045051775644762426
+numeric__hypertension,0.0
+numeric__heart_disease,0.0
+numeric__avg_glucose_level,0.0
+numeric__bmi,0.0
+categorical__gender_Female,0.0
+categorical__gender_Male,0.0
+categorical__gender_Other,0.0
+categorical__ever_married_No,0.0
+categorical__ever_married_Yes,0.0
+categorical__work_type_Govt_job,0.0
+categorical__work_type_Never_worked,0.0
+categorical__work_type_Private,0.0
+categorical__work_type_Self-employed,0.0
+categorical__work_type_children,0.0
+categorical__Residence_type_Rural,0.0
+categorical__Residence_type_Urban,0.0
+categorical__smoking_status_Unknown,0.0
+categorical__smoking_status_formerly smoked,0.0
+categorical__smoking_status_never smoked,0.0
+categorical__smoking_status_smokes,0.0
